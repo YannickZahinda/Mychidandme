@@ -1,3 +1,7 @@
+@import "slick-carousel/slick/slick";
+@import "slick-carousel/slick/slick-theme";
+
+
 * {
     padding: 0;
     margin: 0;
@@ -22,3 +26,30 @@
     color: #fff;
     margin: 15px;
 }
+
+/* // Slider *************************** */
+ .prev, .next {
+ display: none;
+}   
+
+.slider {
+  width: 100%;
+}
+
+.slick-slide img {
+  width: 100%;
+  object-fit: cover;
+  height: 100vh;
+}
+
+.slider {
+  position: relative;
+}
+
+/* // Slide animation ******************** */
+
+@keyframes slidein {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
