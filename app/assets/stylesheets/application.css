@@ -151,6 +151,33 @@
   gap: 20px;
 }
 
+/* 8888888888888 FACT ***************/
+
+.facts {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  padding: 30px;
+}
+
+.women-in-congo,
+.children-in-congo {
+  /* display: grid;
+  grid-template-columns: 1fr; */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fact-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #d13c3f;
+  color: white
+}
+
 @media only screen and (max-width: 900px) {
   .menu-icon{
     display: block;
@@ -167,5 +194,9 @@
   .descpt-img {
     width: 100%;
     object-fit: cover;
+  }
+
+  .status{
+    grid-template-columns: 1fr;
   }
 }
