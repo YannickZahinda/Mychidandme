@@ -46,6 +46,30 @@
   position: relative;
 }
 
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+  background: #184d7259;
+  border-radius: 50%;
+  font-size: 25px;
+  color: #fff;
+  padding: 10px;
+  font-weight: bolder;
+  border: none;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
 /* // Slide animation ******************** */
 
 @keyframes slidein {

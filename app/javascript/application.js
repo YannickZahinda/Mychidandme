@@ -10,7 +10,9 @@ import "controllers"
 function initializeSlider() {
   $('.slider:not(.slick-initialized)').slick({
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3000,
+    prevArrow: '<button type="button" class="prev"> << </button>',
+    nextArrow: '<button type="button" class="next"> >> </button>'
   });
 }
 
@@ -21,9 +23,13 @@ function initialize() {
 document.addEventListener("turbo:load", function() {
   initialize()
 
-  $(document).ready(function() {
+  document.addEventListener("DOMContentLoaded", function() {
     // Find the prev and next buttons and remove them
-    $('.prev, .next').remove();
+    var prevButton = document.querySelector(".prev");
+    var nextButton = document.querySelector(".next");
+    prevButton.parentNode.removeChild(prevButton);
+    nextButton.parentNode.removeChild(nextButton);
   });
+  
   
 })
