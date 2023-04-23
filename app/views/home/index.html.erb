@@ -1,6 +1,12 @@
 <div class="home">
   <header class="nav-bar">
    <%= render "navbar"%>
+   <div class="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+   </div>
+
   </header>
   <div class="slider">
    <div>
@@ -14,7 +20,24 @@
    </div>
   </div>
   <div class="description">
-    <h5>WELCOME TO MY CHILD & ME INC </h5> <br/>
+    <h4>WELCOME TO MY CHILD & ME INC </h4> <br/>
     <p><strong>HELPING ABANDONNED MOTHERS WITH CHILDREN</strong></p>
+    <button STYLE="border: none; padding: 17px; margin: 15px; color: white; background-color: #d13c3f; font-size: 22px; border-radius: 15px">DONATE NOW</button>
+  </div>
+  <div class="who-we-are">
+  <h1 style="color: #d13c3f; text-align: center; padding: 15px">WHO WE ARE</h1>
+  <div class="descpt-wwa" style="display:flex; justify-content: center; padding: 25px; gap: 20px">
+    <p>
+       We help mothers help themselves and their children. 
+       My Child & Me, Inc. is a non-profit organization committed to stabilizing families 
+       by elevating the quality of life of the abandoned mothers with children 
+       living in the Democratic Republic of the Congo. My Child & Me recognizes the devastation of war and sexual 
+       violence against women in the Congo and specifically its impact on mothers with children. 
+       My Child & Me's mission is
+        to provide these abandoned mothers with education, life skills training, and tools to enable them to 
+       provide for their families and become contributing members of their society.
+    </p>
+    <%= image_tag "mwabanaimg.png", class: "descpt-img"%>
+  </div>
   </div>
 </div>
