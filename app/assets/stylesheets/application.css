@@ -191,6 +191,87 @@
   padding: 12px;
 }
 
+/******************** TESTIMONIAL SLIDES *********************/
+
+.testimonial-section {
+  position: relative;
+  padding: 50px 0;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.testimonial-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.testimonial-image img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.testimonial-text h4 {
+  margin: 20px 0 5px;
+  font-size: 18px;
+}
+
+.testimonial-text p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.testimonial-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.testimonial-controls button {
+  background-color: transparent;
+  color: #999;
+  font-size: 30px;
+  border: none;
+}
+
+.testimonial-controls button:hover {
+  color: #555;
+  cursor: pointer;
+}
+
+.prev {
+  margin-left: 20px;
+}
+
+.next {
+  margin-right: 20px;
+}
+
+
 @media only screen and (max-width: 900px) {
   .menu-icon{
     display: block;
