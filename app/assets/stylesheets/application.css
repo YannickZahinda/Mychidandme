@@ -265,13 +265,11 @@
 
 .prev {
   margin-left: 20px;
-  color: #000000;
   font-size: 20px;
 }
 
 .next {
   margin-right: 20px;
-  color: #000000;
   font-size: 20px;
 }
 
@@ -281,7 +279,7 @@
   background-color: #d13c3f;
   text-align: center;
   color: #fff;
-  padding: 30px;
+  padding: 40px;
 }
 
 .news-letter input {
@@ -304,9 +302,27 @@
   border: none;
   cursor: pointer;
   background-color: #f7f7f7;
-  border-radius: 10px;
+  border-radius: 15px;
   color: #000000;
-  padding: 7px;
+  padding: 10px;
+}
+
+.involvement {
+  color: #fff;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background-image: url('mwabanaimg.png'); /* replace with path to desired image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.involvement .inv-p {
+  background-color: #0000009e;
+  color: #fff;
+  padding: 20px;
 }
 
 @media only screen and (max-width: 900px) {
