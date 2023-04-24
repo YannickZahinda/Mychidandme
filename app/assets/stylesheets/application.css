@@ -265,12 +265,49 @@
 
 .prev {
   margin-left: 20px;
+  color: #000000;
+  font-size: 20px;
 }
 
 .next {
   margin-right: 20px;
+  color: #000000;
+  font-size: 20px;
 }
 
+/*******************NEWS LETTER ********************************/
+
+.news-letter {
+  background-color: #d13c3f;
+  text-align: center;
+  color: #fff;
+  padding: 30px;
+}
+
+.news-letter input {
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.news-letter input:focus {
+  outline: none;
+}
+
+.news-letter input::placeholder {
+  color: #383737e3;
+}
+
+.news-letter button{
+  border: none;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  color: #000000;
+  padding: 7px;
+}
 
 @media only screen and (max-width: 900px) {
   .menu-icon{
