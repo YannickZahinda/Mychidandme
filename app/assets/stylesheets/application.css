@@ -153,12 +153,19 @@
 
 /* 8888888888888 FACT ***************/
 
-.facts {
+.facts-container {
   display: flex;
   justify-content: center;
   flex-direction: row;
   gap: 20px;
   padding: 30px;
+}
+
+.fact-img {
+  background-color: #fbfafa40;
+  height: 70px;
+  /* width: 30%; */
+  padding: 15px;
 }
 
 .women-in-congo,
@@ -171,11 +178,17 @@
 }
 
 .fact-card {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr;
   background-color: #d13c3f;
-  color: white
+  color: white;
+  gap: 10px;
+}
+
+.fact-card p {
+  font-size: 13px;
+  padding: 12px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -198,5 +211,9 @@
 
   .status{
     grid-template-columns: 1fr;
+  }
+
+  .facts-container {
+    flex-direction: column;
   }
 }
