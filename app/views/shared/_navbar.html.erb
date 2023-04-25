@@ -10,6 +10,7 @@
  <a href="<%= root_path %>">Home</a>
   <a href="about">About</a>
   <a href="#">Our Work</a>
-  <a href="#">Blog</a>
+  <%= link_to "Blog", blogs_path%>
   <a href="#">Donate</a>
+  <%= link_to "Sign in", new_user_session_path%>
  </div>
