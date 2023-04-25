@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
 
   resource :home, only: [:index]
+  get 'about' => 'about#index'
   resources :blogs, only: [:index, :show]
 end
