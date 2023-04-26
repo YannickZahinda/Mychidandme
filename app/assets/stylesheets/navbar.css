@@ -19,3 +19,52 @@
     color: #fff;
     margin: 15px;
 }
+
+/************** Admin side Bar **********/
+
+.admin_side_bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 30px 30px 30px 0;
+  background-color: #d13c3f;
+  height: 100vh;
+  overflow-x: scroll;
+  width: max-content;
+}
+
+.admin_side_bar a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #d13c3f;
+  padding: 30px;
+}
+
+.admin-link {
+  margin: 30px 30px 30px 0px;
+  width: max-content;
+}
+
+.admin_side_bar a:hover {
+  background-color: #000000;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+}
+
+.admin-display {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.home-logo {
+  width: 200px;
+  /* height: 200px; */
+  margin: 0;
+  padding: 0;
+}
+
+.logo-img {
+  width: 100%;
+}

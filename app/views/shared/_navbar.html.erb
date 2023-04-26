@@ -2,9 +2,7 @@
   <title>About</title>
   <%= stylesheet_link_tag "navbar" %>
 </head>
-<div class="logo">
- <h1>Logo</h1>
-</div>
+<div class= home-logo > <%= link_to(root_path) do%> <%= image_tag "mychildandmelogo.webp", class: "logo-img" %> <% end %> </div>
 
  <div class="links">
   <a href="<%= root_path %>">Home</a>
@@ -15,7 +13,7 @@
   <% if user_signed_in? %>
    <%= link_to "log out", destroy_user_session_path, method: :delete%>
    <% if current_user.is_admin? %>
-     <%= link_to "Admin Log", admin_blogs_path %>
+     <%= link_to "Admin Log", admin_home_index_path %>
    <% end %>
   <% else %>
    <%= link_to "Sign in", new_user_session_path%>
