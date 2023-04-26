@@ -5,7 +5,16 @@
   <% @blogs.each do |blog| %>
     <div class="blog">
       <div class="blog-head">
-        <h5><div class="admin-icon-blog"><i class="fas fa-user-circle"></i></div> <div class="current-user"><%= current_user.email%></div></h5>
+        <h5>
+          <div class="admin-icon-blog">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="current-user">
+            <% if blog.user_id? %>
+              <%= blog.user.email%>
+            <% end %>
+          </div>
+        </h5>
         <div>Published: <em><strong><%= blog.created_at.strftime("%B %d, %Y")%></strong></em></div>
       </div>
       <div class="blog-body">

@@ -1,12 +1,26 @@
-<h1>Blogs</h1>
+<p class="notice"><%= notice %></p>
 
-<div id="blogs">
+<div class="blogs">
+  <h1 style="text-align: center; margin-top: 3.5rem">Blogs</h1>
   <% @blogs.each do |blog| %>
-    <%= render blog %>
-    <p>
-      <%= link_to "Show this blog", admin_blog_path(blog)%>
-    </p>
+    <div class="blog">
+      <div class="blog-head">
+        <h5><div class="admin-icon-blog"><i class="fas fa-user-circle"></i></div> <div class="current-user"><%= current_user.email%></div></h5>
+        <div>Published: <em><strong><%= blog.created_at.strftime("%B %d, %Y")%></strong></em></div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-text">
+          <h2 class="title"><%= blog.title %></h2><br/>
+          <p><%= blog.body %></p>
+          <div class="read-more"><%= link_to "See this pub", blog, class: "btn btn-primary" %></div>
+          <div class="read-more"><%= link_to "Edit", edit_admin_blog_path(blog), class: "btn btn-primary" %></div>
+        </div>
+      </div>
+      
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New blog", new_blog_path %>
+
+
+<%= link_to "New blog", new_admin_blog_path %>

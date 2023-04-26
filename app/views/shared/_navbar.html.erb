@@ -7,10 +7,17 @@
 </div>
 
  <div class="links">
- <a href="<%= root_path %>">Home</a>
+  <a href="<%= root_path %>">Home</a>
   <a href="about">About</a>
   <a href="#">Our Work</a>
   <%= link_to "Blog", blogs_path%>
   <a href="#">Donate</a>
-  <%= link_to "Sign in", new_user_session_path%>
+  <% if user_signed_in? %>
+   <%= link_to "log out", destroy_user_session_path, method: :delete%>
+   <% if current_user.is_admin? %>
+     <%= link_to "Admin Log", admin_blogs_path %>
+   <% end %>
+  <% else %>
+   <%= link_to "Sign in", new_user_session_path%>
+  <% end %>
  </div>

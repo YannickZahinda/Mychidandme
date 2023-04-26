@@ -1,5 +1,6 @@
 class Admin::BlogsController < ApplicationController
-    before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+    before_action :set_blog, only: %i[ show edit update destroy]
 
     # GET /blogs or /blogs.json
     def index
@@ -8,6 +9,7 @@ class Admin::BlogsController < ApplicationController
   
     # GET /blogs/1 or /blogs/1.json
     def show
+      @blog = Blog.find(params[:id])
     end
   
     # GET /blogs/new
@@ -25,7 +27,7 @@ class Admin::BlogsController < ApplicationController
   
       respond_to do |format|
         if @blog.save
-          format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
+          format.html { redirect_to admin_blogs_path(@blog), notice: "Blog was successfully created." }
           format.json { render :show, status: :created, location: @blog }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +67,6 @@ class Admin::BlogsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def blog_params
-        params.require(:blog).permit(:title, :body)
+        params.require(:blog).permit(:title, :body, :user_id)
       end
 end
