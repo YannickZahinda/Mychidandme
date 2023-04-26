@@ -140,3 +140,141 @@ color: white;
 .second-card .text-two ul li {
 margin-top: 10px;
 }
+
+.third-header-text{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: #333333;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem 1rem 3rem 1rem;
+
+}
+
+.third-card-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: .6;
+width: 80%;
+}
+
+.third-card-header {
+  padding: 10px;
+  color: #fff;
+  align-self: flex-start;
+  margin-bottom: 5%;
+  margin-right: 10px;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.third-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  height: 100vh;
+  padding: 0px 1.5rem 0px 1.5rem;
+  gap: 1.5rem;
+}
+
+.third-card-img{
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  height: 400px;
+  color: #fff;
+  border-radius: 10px;
+  align-self: center;
+  padding: 2rem 0px 0px 2rem;
+  flex: .6;
+}
+
+.third-card-line {
+  background-color: #d13c3f;
+  width: 150px;
+  height: 2px;
+  align-self: flex-start;
+  margin-bottom: 10%;
+  margin-left: 10px;
+}
+
+.third-card-paragraph{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  gap: 2rem;
+  width: 95%;
+  color: #fff;
+  line-height: 1.5rem;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.founder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.founder .founder-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  min-height: 100vh;
+  background-color: #ddd;
+}
+
+.founder .founder-content .founder-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+  padding: 30px 10px 20px 100px;
+  flex: .7;
+}
+
+.founder .founder-content .founder-text .founder-paragraghs-wrapper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 20px;
+}
+
+.founder .founder-content .founder-text .founder-header {
+  font-weight: bolder;
+  padding: 5px;
+  align-self: flex-start;
+  padding-left: 1.5rem;
+}
+
+.founder .founder-content .founder-text .founder-line {
+  background-color: #d13c3f;
+  width: 100px;
+  height: 4px;
+  align-self: flex-start;
+  margin-left: 1.5rem;
+}
+
+.founder .founder-content .founder-image-wrapper {
+  width: 300px;
+  height: 700px;
+  margin-bottom: 10%;
+}
+
+.founder .founder-content .founder-image-wrapper .founder-image {
+  width: 100%;
+  height: 100%;
+}
