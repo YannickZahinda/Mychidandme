@@ -1,10 +1,32 @@
-<p style="color: green"><%= notice %></p>
 
-<div style="margin: 30px">
-  <h1>Subject: <%= @blog.title%></h1>
-  <p><%= @blog.body%></p>
+<div id="<%= dom_id @blog %>">
+  <div class="blogs">
+    <h1 style="text-align: center; margin-top: 3.5rem">Blogs</h1>
+      <div class="blog">
+        <div class="blog-head">
+          <h5>
+            <div class="admin-icon-blog">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="current-user">
+              <% if @blog.user_id? %>
+                <%= @blog.user.email%>
+              <% end %>
+            </div>
+          </h5>
+          <div>Published: <em><strong><%= @blog.created_at.strftime("%B %d, %Y")%></strong></em></div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-text">
+            <h2 class="title"><%= @blog.title %></h2><br/>
+            <p><%= @blog.body %></p>
+            <div class="show-btn">
+                <div class="read-more"> <%= link_to "Back to blogs", blogs_path, class: "btn-primary" %> </div> 
+            </div>
+          </div>
+        </div>
+        
+      </div>
+  </div>
 </div>
 
-<div>|
-  <%= link_to "Back to blogs", blogs_path %>
-</div>
