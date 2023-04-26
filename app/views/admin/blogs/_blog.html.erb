@@ -9,8 +9,8 @@
               <i class="fas fa-user-circle"></i>
             </div>
             <div class="current-user">
-              <% if blog.user_id? %>
-                <%= blog.user.email%>
+              <% if @blog.user_id? %>
+                <%= @blog.user.email%>
               <% end %>
             </div>
           </h5>
