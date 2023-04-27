@@ -1,8 +1,8 @@
-class Admin::TestimonialsController < ApplicationController
+class Admin::TestimoniesController < ApplicationController
     before_action :set_testimony, only: %i[show edit update destroy]
     
     def index
-      @testimonials = Testimony.all
+      @testimonies = Testimony.all
     end
 
     def new
@@ -21,7 +21,7 @@ class Admin::TestimonialsController < ApplicationController
       @testimony = Testimony.new(testimony_params)
 
       if @testimony.save
-        redirect_to admin_testimonials_path
+        redirect_to admin_testimonies_path
       else 
         render :new
       end 
@@ -29,7 +29,7 @@ class Admin::TestimonialsController < ApplicationController
 
     def update
       if @testimony.update(testimony_params)
-        redirect_to admin_testimonials_path(@testimony)
+        redirect_to admin_testimonies_path(@testimony)
       else 
         render :show, status: :unprocessable_entity
       end
@@ -37,7 +37,7 @@ class Admin::TestimonialsController < ApplicationController
 
     def destroy
       if @testimony.destroy 
-        redirect_to admin_testimonials_path
+        redirect_to admin_testimonies_path
       end
     end
 

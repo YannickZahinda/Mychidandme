@@ -1,0 +1,9 @@
+<div style="text-align: center; padding: 20px">
+ <h1>Testimonials</h1>
+ <%= link_to "+ add testimony", new_admin_testimony_path%>
+ <% @testimonies.each do |tes| %>
+   <div><%= image_tag tes.image, style: "width: 60px; height: 60px; border-radius: 50%"%></div>
+   <h3><%= tes.title%></h3>
+   <p><%= tes.body%></p>
+ <% end %>
+</div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :blogs, only: [:index, :new, :show, :create, :update, :destroy, :edit]
 
     resources :impacts, only: [:index, :new, :show, :create, :update, :destroy, :edit]
-    resources :testimonials, only: [:index, :new, :show, :create, :update, :destroy,:edit]
+    resources :testimonies, only: [:index, :new, :show, :create, :update, :destroy,:edit]
   end
 
   resources :home, only: [:index]
