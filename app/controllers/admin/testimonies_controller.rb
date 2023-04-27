@@ -36,6 +36,8 @@ class Admin::TestimoniesController < ApplicationController
     end
 
     def destroy
+      @testimony = Testimony.find(params[:id])
+
       if @testimony.destroy 
         redirect_to admin_testimonies_path
       end
