@@ -3,5 +3,5 @@
   <div class="admin-link"><%= link_to "Impact over years", admin_home_index_path %></div>
   <div class="admin-link"><%= link_to "My Blog", admin_blogs_path%></div>
   <div class="admin-link"><%= link_to "Testimonials", admin_testimonies_path %></div>
-  <div class="admin-link"><a href="#">Newsletter</a></div>
+  <div class="admin-link"><%= link_to "Log out", destroy_user_session_path, method: :delete%></div>
 </div>
