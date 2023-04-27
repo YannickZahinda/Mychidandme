@@ -1,9 +1,13 @@
-<div style="text-align: center; padding: 20px">
- <h1>Testimonials</h1>
- <%= link_to "+ add testimony", new_admin_testimony_path%>
- <% @testimonies.each do |tes| %>
-   <div><%= image_tag tes.image, style: "width: 60px; height: 60px; border-radius: 50%"%></div>
-   <h3><%= tes.title%></h3>
-   <p><%= tes.body%></p>
- <% end %>
+<div class="testimonies-container">
+  <h1 class="testimonies-header">Testimonies</h1>
+  <%= link_to "+ Add Testimony", new_admin_testimony_path, class: "add-testimony-link" %>
+  <div class="testimonies-list">
+    <% @testimonies.each do |tes| %>
+      <div class="testimony">
+        <%= image_tag tes.image, class: "testimony-image" %>
+        <h3 class="testimony-title"><%= tes.title %></h3>
+        <p class="testimony-body"><%= tes.body %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

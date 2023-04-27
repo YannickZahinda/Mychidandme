@@ -132,10 +132,11 @@
        <% @testimonies.each do |t| %>
         <div class="testimonial-box">
           <div class="testimonial-image">
-            <%= t.image  %>
+            <%= image_tag t.image  %>
           </div>
+          <h3 ><%= t.title%></h3> <br/>
           <div class="testimonial-text">
-            <p><%= t.body%></p>
+            <p><%= t.body %></p>
           </div>
         </div>
         <% end %>
