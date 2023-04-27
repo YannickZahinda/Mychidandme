@@ -1,5 +1,33 @@
 <div class="admin-home-index">
   <div class="admin-home-head">
-    <h1>MWABANA DASHBOARD</h1>
+    <h1>OUR IMPACT OVER THE YEARS</h1>
+  </div>
+  <div>
+  
+    <% @impacts.each do |imp| %>
+    <%= link_to "+ Update statistics", edit_admin_impact_path(imp) %>
+      <div class="status status-admin">
+         <div class="mothers">
+           <h2>MOTHERS</h2>
+           <%= image_tag "mother-icon.png", class: "impact-icon" %>
+           <div style="font-size: 26px"><strong><%= imp.workshop%></strong></div>
+         </div>
+         <div class="children">
+          <h2>CHILDREN</h2>
+            <%= image_tag "children-icon.png", class: "impact-icon" %>
+            <div style="font-size: 26px"><strong><%= imp.mother %></strong></div>
+         </div>
+         <div class="business">
+          <h2>BUSINESSES</h2>
+             <%= image_tag "business-woman-icon.png", class: "impact-icon" %>
+             <div style="font-size: 26px"><strong><%= imp.children %></strong></div>
+         </div>
+         <div class="workshop">
+             <h2>WORKSHOPS</h2>
+             <%= image_tag "workshop-icon.png", class: "impact-icon" %>
+             <div style="font-size: 26px"><strong><%= imp.business %></strong></div>
+         </div>
+      </div>
+    <% end %>
   </div>
 </div>

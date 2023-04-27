@@ -43,28 +43,34 @@
   <div class="impact">
     <h1 style="font-size: 30px; padding: 25px">OUR IMPACT</h1>
     <p>These are our impact over the years</p> <br/><br/>
-    <div class="status">
-      <div class="mothers">
-        <h2>MOTHERS</h2>
-        <%= image_tag "mother-icon.png", class: "impact-icon" %>
-        <div style="font-size: 26px"><strong>948</strong></div>
+    <% if @impacts.present?%>
+    <% @impacts.each do |i| %>
+      <div class="status">
+        <div class="mothers">
+          <h2>MOTHERS</h2>
+          <%= image_tag "mother-icon.png", class: "impact-icon" %>
+          <div style="font-size: 26px"><strong><%= i.mother%></strong></div>
+        </div>
+        <div class="children">
+         <h2>CHILDREN</h2>
+           <%= image_tag "children-icon.png", class: "impact-icon" %>
+           <div style="font-size: 26px"><strong><%= i.children%></strong></div>
+        </div>
+        <div class="business">
+         <h2>BUSINESSES</h2>
+            <%= image_tag "business-woman-icon.png", class: "impact-icon" %>
+            <div style="font-size: 26px"><strong><%= i.business%></strong></div>
+        </div>
+        <div class="workshop">
+            <h2>WORKSHOPS</h2>
+            <%= image_tag "workshop-icon.png", class: "impact-icon" %>
+            <div style="font-size: 26px"><strong><%= i.workshop%></strong></div>
+        </div>
       </div>
-      <div class="children">
-       <h2>CHILDREN</h2>
-         <%= image_tag "children-icon.png", class: "impact-icon" %>
-         <div style="font-size: 26px"><strong>2,041</strong></div>
-      </div>
-      <div class="business">
-       <h2>BUSINESSES</h2>
-          <%= image_tag "business-woman-icon.png", class: "impact-icon" %>
-          <div style="font-size: 26px"><strong>68</strong></div>
-      </div>
-      <div class="workshop">
-          <h2>WORKSHOPS</h2>
-          <%= image_tag "workshop-icon.png", class: "impact-icon" %>
-          <div style="font-size: 26px"><strong>56</strong></div>
-      </div>
-    </div>
+    <% end %>
+    <%else%>
+      <div>NO IMPACT </div>
+    <% end %>
   </div>
   <h1 style="text-align: center; padding: 30px">FACTS</h1>
   <div class="facts-container">
@@ -122,49 +128,20 @@
   <section class="testimonial-section">
     <div style="padding: 20px"><h1>TESTIMONIALS</h1></div>
     <div class="testimonial-container">
-      <div class="testimonial-box">
-        <div class="testimonial-image">
-         <%= image_tag "picturetestimonial.png" %>
+      <% if @testimonials.present? %>
+       <% @testimonials.each do |t| %>
+        <div class="testimonial-box">
+          <div class="testimonial-image">
+            <%= t.image  %>
+          </div>
+          <div class="testimonial-text">
+            <p><%= t.body%></p>
+          </div>
         </div>
-        <div class="testimonial-text">
-          <p>"I owe a whole lot to My Child & Me. Without them our family would have been without food or shelter.
-             Today my children are able to go to school, we have a shelter over our
-             heads and food to eat. All thanks to this beautiful organization."
-          </p>
-          <h4>NABINTU WABIWA</h4>
-          <p>BENEFICIARY</p>
-        </div>
-      </div>
-      <div class="testimonial-box">
-        <div class="testimonial-image">
-         <%= image_tag "picturetestimonial.png" %>
-        </div>
-        <div class="testimonial-text">
-          <p>"I cannot thank the Save Mother and Children team enough for their incredible work. Their support has been invaluable in helping me navigate the challenges of motherhood and ensure my children's health and wellbeing."</p>
-          <h4>Jane Doe</h4>
-          <p>Mother of Two</p>
-        </div>
-      </div>
-      <div class="testimonial-box">
-        <div class="testimonial-image">
-         <%= image_tag "picturetestimonial.png" %>
-        </div>
-        <div class="testimonial-text">
-          <p>"The team at Save Mother and Children truly cares about the women and children they serve. Their dedication and commitment to their mission is inspiring and has made a real difference in the lives of countless families."</p>
-          <h4>John Smith</h4>
-          <p>Father of Three</p>
-        </div>
-      </div>
-      <div class="testimonial-box">
-        <div class="testimonial-image">
-          <%= image_tag "picturetestimonial.png" %>
-        </div>
-        <div class="testimonial-text">
-          <p>"Thanks to the support and resources provided by Save Mother and Children, I was able to give birth to a healthy baby boy and receive the postpartum care I needed. I will be forever grateful for their help."</p>
-          <h4>Maria Rodriguez</h4>
-          <p>Expectant Mother</p>
-        </div>
-      </div>
+        <% end %>
+      <% else %>
+        <div>NO TESTIMONIALS FOR NOW. Will let you know</div>
+      <% end %>
     </div>
     <div class="testimonial-controls">
       <button class="prev">&lt;</button>

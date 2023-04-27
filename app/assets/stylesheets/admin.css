@@ -10,7 +10,7 @@
 }
 
 .admin-home-head h1 {
-    color: rgb(209, 35, 35);
+    color: rgb(85, 78, 78);
 }
 
 .yield {
@@ -34,4 +34,10 @@
 .show-btn {
     display: flex;
     gap: 10px;
+}
+
+.status-admin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
 }
