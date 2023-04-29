@@ -7,8 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "about", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "blog", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "navbar", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
@@ -20,7 +22,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
+
 
     <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) %>
       <div class="admin-display">
@@ -34,11 +36,12 @@
       <%= yield %>
       <footer>
        <p> &copy; COPYRIGHT MYCHILDANDME </p>
-      </footer> 
+      </footer>
     <% end %>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-   
+    <script src="https://use.fontawesome.com/69681bfa35.js"></script>
+
   </body>
 </html>

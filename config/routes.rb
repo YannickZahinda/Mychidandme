@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root to: "home#index"
 
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   get 'about' => 'about#index'
+  get 'donate' => 'donate#index'
   resources :blogs, only: [:index, :show]
 end

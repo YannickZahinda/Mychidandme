@@ -1,0 +1,366 @@
+<%= form_with  do |form| %>
+  <div class="form">
+    <div class="field-input">
+        <%= form.label :amount, "$", class: 'label' %>
+        <%= form.text_field :amount, class: 'input', id: 'amount_field' %>
+    </div>
+    <div class="field-for-money">
+      <div class="field">
+        <%= form.radio_button :money, "$25", onchange: "updateAmountField('25.00')" %>
+        <%= form.label :money_twenty_five, "$25" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$50", onchange: "updateAmountField('50.00')" %>
+        <%= form.label :money_fifty, "$50" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$100", onchange: "updateAmountField('100.00')" %>
+        <%= form.label :money_hundred, "$100" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$200", onchange: "updateAmountField('200.00')" %>
+        <%= form.label :money_two_hundred, "$200" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "custom", onchange: "focusAmountField("")" %>
+        <%= form.label :money_custom, "Custom Amount" %>
+      </div>
+    </div>
+    <div class="field-checklist-wrapper">
+      <div class="field-checklist">
+          <%= form.check_box :checklist, class: 'checkbox' %>
+          <%= form.label :checklist, "I'd Like to help cover the transaction fee of $1.80 for my donation.", class: 'check-label' %>
+      </div>
+      <div class="field-checklist">
+        <div class="field-checklist-select">
+            <%= form.check_box :checklisted, class: 'checkbox' %>
+            <%= form.label :checklisted, "Make this donation every", class: 'check-label' %>
+            <%= form.select :city, ["Day", "Week", "Month", "Quarter", "Year"],  selected: "Month" , class: "select" %>
+        </div>
+      </div>
+      <div class="field-payment">
+        <div class="payment-header-wrapper">
+          <h2 class="payment-header">Select Payment Method</h2>
+          <hr class="hr">
+        </div>
+        <div class="field-payment-form">
+          <div class="field-payment-form-checkout">
+            <%= form.radio_button :payment, class: 'payment-radio' %>
+            <%= form.label :payment, "Stripe-Checkout", class: 'payment-label-checkout' %>
+          </div>
+          <div class="field-payment-form-credit-card">
+            <%= form.radio_button :payment, class: 'payment-radio' %>
+            <%= form.label :payment, "Stripe-Credit-Card", class: 'payment-label-credit-card' %>
+          </div>
+        </div>
+      </div>
+      <div class="personal-info">
+        <div class="personal-header-wrapper">
+          <h2 class="personal-header">Personal Information</h2>
+          <hr class="hr">
+        </div>
+        <div class="personal-info-content">
+          <div class="personal-info-firstname">
+            <%= form.label :p_info, "First Name", class: 'personal-info-label' %>
+            <%= form.text_field :p_info, placeholder: "First Name", class: 'personal-input' %>
+          </div>
+          <div class="personal-info-lastname ">
+            <%= form.label :p_info, "Last Name", class: 'personal-info-label' %>
+            <%= form.text_field :p_info, placeholder: "Last Name", class: 'personal-input' %>
+          </div>
+        </div>
+      </div>
+      <h2 class="asking-header">Is this donation for a company</h2>
+      <div class="asking">
+        <div class="asking-content">
+             <div class="asking-radio-wrapper">
+              <%= form.radio_button :asking, class: 'asking-radio' %>
+              <%= form.label :payment, "No", class: 'asking-label' %>
+            </div>
+            <div class="asking-radio-wrapper">
+              <%= form.radio_button :asking, class: 'asking-radio' %>
+              <%= form.label :asking, "Yes", class: 'asking-label' %>
+            </div>
+          </div>
+      </div>
+      <div class="personal-email ">
+        <%= form.label :p_info, "Email Address", class: 'personal-email-label' %>
+        <%= form.email_field :p_info, placeholder: "Email", class: 'email-input' %>
+      </div>
+      <div class="hidden-checklist">
+          <%= form.check_box :hidden, class: 'checkbox' %>
+          <%= form.label :hidden, "Make this an anonymous donation", class: 'hidden-info-label' %>
+      </div>
+      <div class="text-area">
+          <%= form.label :text_area, "Comment", class: 'text-info-label' %>
+          <%= form.text_area :text_area, class: 'text-area-input' %>
+      </div>
+      <div class="new-account">
+          <%= form.check_box :new_acct, class: 'checkbox' %>
+          <%= form.label :new_acct, "Create an Account", class: 'hidden-info-label' %>
+      </div>
+      <div class="card-info">
+        <div class="card-header-wrapper">
+          <h2 class="card-header">Credit Card Info</h2>
+          <hr class="hr">
+          <div class="card-secure-wrapper">
+            <span><i class="icon card-secure-icon fas fa-lock"></i></span>
+            <p class="icon card-secure-info">This is a secure SSL encrypted payment.</p>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <div class="card-info-number">
+            <%= form.label :card_info, "Card Number", class: 'card-number' %>
+            <%= form.number_field :card_info, placeholder: "Card Number", class: 'card-input-number' %>
+          </div>
+          <div class="card-info-CVC ">
+            <%= form.label :card_info, "CVC", class: 'card-cvc' %>
+            <%= form.number_field :card_info, placeholder: "CVC", class: 'card-input-cvc' %>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <div class="card-info-number">
+            <%= form.label :card_info, "Card Holder Name", class: 'card-number' %>
+            <%= form.text_field :card_info, placeholder: "Card Holder Name", class: 'card-input-number' %>
+          </div>
+          <div class="card-info-CVC ">
+            <%= form.label :card_info, "Expiration", class: 'card-cvc' %>
+            <%= form.number_field :card_info, placeholder: "MM / YY", class: 'card-input-cvc' %>
+          </div>
+        </div>
+      </div>
+      <div class="billing-info">
+        <div class="billing-header-wrapper">
+          <h2 class="billing-header">Billing Details</h2>
+          <hr class="hr">
+        </div>
+        <div class="billing-info-content">
+          <div class="billing-info-Country">
+            <%= form.label :billing_info, "billing Country", class: 'billing-Country' %>
+            <%= form.select :billing_info, options_for_select([
+              ['Afghanistan', 'AF'],
+              ['Albania', 'AL'],
+              ['Algeria', 'DZ'],
+              ['Andorra', 'AD'],
+              ['Angola', 'AO'],
+              ['Argentina', 'AR'],
+              ['Armenia', 'AM'],
+              ['Australia', 'AU'],
+              ['Austria', 'AT'],
+              ['Azerbaijan', 'AZ'],
+              ['Bahamas', 'BS'],
+              ['Bahrain', 'BH'],
+              ['Bangladesh', 'BD'],
+              ['Barbados', 'BB'],
+              ['Belarus', 'BY'],
+              ['Belgium', 'BE'],
+              ['Belize', 'BZ'],
+              ['Benin', 'BJ'],
+              ['Bhutan', 'BT'],
+              ['Bolivia', 'BO'],
+              ['Bosnia and Herzegovina', 'BA'],
+              ['Botswana', 'BW'],
+              ['Brazil', 'BR'],
+              ['Brunei', 'BN'],
+              ['Bulgaria', 'BG'],
+              ['Burkina Faso', 'BF'],
+              ['Burundi', 'BI'],
+              ['Cambodia', 'KH'],
+              ['Cameroon', 'CM'],
+              ['Canada', 'CA'],
+              ['Cape Verde', 'CV'],
+              ['Central African Republic', 'CF'],
+              ['Chad', 'TD'],
+              ['Chile', 'CL'],
+              ['China', 'CN'],
+              ['Colombia', 'CO'],
+              ['Comoros', 'KM'],
+              ['Congo', 'CG'],
+              ['Costa Rica', 'CR'],
+              ['Croatia', 'HR'],
+              ['Cuba', 'CU'],
+              ['Cyprus', 'CY'],
+              ['Czech Republic', 'CZ'],
+              ['Democratic Republic of the Congo', 'CD'],
+              ['Denmark', 'DK'],
+              ['Djibouti', 'DJ'],
+              ['Dominica', 'DM'],
+              ['Dominican Republic', 'DO'],
+              ['East Timor', 'TL'],
+              ['Ecuador', 'EC'],
+              ['Egypt', 'EG'],
+              ['El Salvador', 'SV'],
+              ['Equatorial Guinea', 'GQ'],
+              ['Eritrea', 'ER'],
+              ['Estonia', 'EE'],
+              ['Eswatini', 'SZ'],
+              ['Ethiopia', 'ET'],
+              ['Fiji', 'FJ'],
+              ['Finland', 'FI'],
+              ['France', 'FR'],
+              ['Gabon', 'GA'],
+              ['Gambia', 'GM'],
+              ['Georgia', 'GE'],
+              ['Germany', 'DE'],
+              ['Ghana', 'GH'],
+              ['Greece', 'GR'],
+              ['Grenada', 'GD'],
+              ['Guatemala', 'GT'],
+              ['Guinea', 'GN'],
+              ['Guinea-Bissau', 'GW'],
+              ['Guyana', 'GY'],
+              ['Haiti', 'HT'],
+              ['Honduras', 'HN'],
+              ['Hungary', 'HU'],
+              ['Iceland', 'IS'],
+              ['India', 'IN'],
+              ['Indonesia', 'ID'],
+              ['Iran', 'IR'],
+              ['Iraq', 'IQ'],
+              ['Ireland', 'IE'],
+              ['Israel', 'IL'],
+              ['Italy', 'IT'],
+              ['Jamaica', 'JM'],
+              ['Japan', 'JP'],
+              ['Jordan', 'JO'],
+              ['Kazakhstan', 'KZ'],
+              ['Kenya', 'KE'],
+              ['Kiribati', 'KI'],
+              ['Kuwait', 'KW'],
+              ['Kyrgyzstan', 'KG'],
+              ['Laos', 'LA'],
+              ['Latvia', 'LV'],
+              ['Lebanon', 'LB'],
+              ['Lesotho', 'LS'],
+              ['Liberia', 'LR'],
+              ['Libya', 'LY'],
+              ['Liechtenstein', 'LI'],
+              ['Lithuania', 'LT'],
+              ['Luxembourg', 'LU'],
+              ['Madagascar', 'MG'],
+              ['Malawi', 'MW'],
+              ['Malaysia', 'MY'],
+              ['Maldives', 'MV'],
+              ['Mali', 'ML'],
+              ['Malta', 'MT'],
+              ['Marshall Islands', 'MH'],
+              ['Mauritania', 'MR'],
+              ['Mauritius', 'MU'],
+              ['Mexico', 'MX'],
+              ['Micronesia', 'FM'],
+              ['Moldova', 'MD'],
+              ['Monaco', 'MC'],
+              ['Mongolia', 'MN'],
+              ['Montenegro', 'ME'],
+              ['Morocco', 'MA'],
+              ['Mozambique', 'MZ'],
+              ['Myanmar', 'MM'],
+              ['Namibia', 'NA'],
+              ['Nauru', 'NR'],
+              ['Nepal', 'NP'],
+              ['Netherlands', 'NL'],
+              ['New Zealand', 'NZ'],
+              ['Nicaragua', 'NI'],
+              ['Niger', 'NE'],
+              ['Nigeria', 'NG'],
+              ['North Korea', 'KP'],
+              ['North Macedonia', 'MK'],
+              ['Norway', 'NO'],
+              ['Oman', 'OM'],
+              ['Pakistan', 'PK'],
+              ['Palau', 'PW'],
+              ['Panama', 'PA'],
+              ['Papua New Guinea', 'PG'],
+              ['Paraguay', 'PY'],
+              ['Peru', 'PE'],
+              ['Philippines', 'PH'],
+              ['Poland', 'PL'],
+              ['Portugal', 'PT'],
+              ['Qatar', 'QA'],
+              ['Romania', 'RO'],
+              ['Russia', 'RU'],
+              ['Rwanda', 'RW'],
+              ['Saint Kitts and Nevis', 'KN'],
+              ['Saint Lucia', 'LC'],
+              ['Saint Vincent and the Grenadines', 'VC'],
+              ['Samoa', 'WS'],
+              ['San Marino', 'SM'],
+              ['Sao Tome and Principe', 'ST'],
+              ['Saudi Arabia', 'SA'],
+              ['Senegal', 'SN'],
+              ['Serbia', 'RS'],
+              ['Seychelles', 'SC'],
+              ['Sierra Leone', 'SL'],
+              ['Singapore', 'SG'],
+              ['Slovakia', 'SK'],
+              ['Slovenia', 'SI'],
+              ['Solomon Islands', 'SB'],
+              ['Somalia', 'SO'],
+              ['South Africa', 'ZA'],
+              ['South Korea', 'KR'],
+              ['South Sudan', 'SS'],
+              ['Spain', 'ES'],
+              ['Sri Lanka', 'LK'],
+              ['Sudan', 'SD'],
+              ['Suriname', 'SR'],
+              ['Sweden', 'SE'],
+              ['Switzerland', 'CH'],
+              ['Syria', 'SY'],
+              ['Taiwan', 'TW'],
+              ['Tajikistan', 'TJ'],
+              ['Tanzania', 'TZ'],
+              ['Thailand', 'TH'],
+              ['Togo', 'TG'],
+              ['Tonga', 'TO'],
+              ['Trinidad and Tobago', 'TT'],
+              ['Tunisia', 'TN'],
+              ['Turkey', 'TR'],
+              ['Turkmenistan', 'TM'],
+              ['Tuvalu', 'TV'],
+              ['Uganda', 'UG'],
+              ['Ukraine', 'UA'],
+              ['United Arab Emirates', 'AE'],
+              ['United Kingdom', 'GB'],
+              ['United States', 'US'],
+              ['Uruguay', 'UY'],
+              ['Uzbekistan', 'UZ'],
+              ['Vanuatu', 'VU'],
+              ['Vatican City', 'VA'],
+              ['Venezuela', 'VE'],
+              ['Vietnam', 'VN'],
+              ['Yemen', 'YE'],
+              ['Zambia', 'ZM'],
+              ['Zimbabwe', 'ZW']
+            ], selected: 'United States'), { prompt: 'United States' } , class: "billing_info-country_select"  %>
+          </div>
+          </div>
+          <div class="billing-info-CVC ">
+            <%= form.label :billing_info, "CVC", class: 'billing-cvc' %>
+            <%= form.number_field :billing_info, placeholder: "CVC", class: 'billing-input-cvc' %>
+          </div>
+          <div class="billing-info-postal-state">
+            <div class="billing-info-number">
+              <%= form.label :billing_info, "billing Holder Name", class: 'billing-number' %>
+              <%= form.text_field :billing_info, placeholder: "billing Holder Name", class: 'billing-input-number' %>
+            </div>
+            <div class="billing-info-CVC ">
+              <%= form.label :billing_info, "Expiration", class: 'billing-cvc' %>
+              <%= form.number_field :billing_info, placeholder: "MM / YY", class: 'billing-input-cvc' %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<% end %>
+
+<script>
+  function updateAmountField(value) {
+    document.getElementById('amount_field').value = value;
+  }
+
+  function focusAmountField() {
+    document.getElementById('amount_field').focus();
+     document.getElementById('amount_field').value = "";
+  }
+</script>
