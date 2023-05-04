@@ -1,0 +1,21 @@
+<head>
+  <title>About</title>
+  <%= stylesheet_link_tag "navbar" %>
+</head>
+<div class= home-logo > <%= link_to(root_path) do%> <%= image_tag "mychildandmelogo.webp", class: "logo-img" %> <% end %> </div>
+
+ <div class="links">
+  <a href="<%= root_path %>">Home</a>
+  <a href="about">About</a>
+  <a href="#">Our Work</a>
+  <%= link_to "Blog", blogs_path%>
+  <a href="donate">Donate</a>
+  <% if user_signed_in? %>
+   <%= link_to "log out", destroy_user_session_path, method: :delete%>
+   <% if current_user.is_admin? %>
+     <%= link_to "Dashboard", admin_home_index_path %>
+   <% end %>
+  <% else %>
+   <%= link_to "Sign in", new_user_session_path%>
+  <% end %>
+ </div>

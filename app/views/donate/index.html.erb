@@ -1,0 +1,32 @@
+<head>
+  <%= stylesheet_link_tag "donate" %>
+</head>
+
+<body>
+  <div id="container">
+    <div class="donate-header">
+      <h1>Donate</h1>
+    </div>
+    <div id="content">
+      <div class="donate-image-wrapper">
+        <%= image_tag "https://i0.wp.com/mychildandme.org/wp-content/uploads/2021/06/donationpage.jpg?resize=793%2C1024&ssl=1", class: "donate-image" %>
+      </div>
+      <div class="donate-text-content">
+        <div class="donate-text-wrapper">
+          <p>
+            Your donation makes a REAL Difference:
+          </p>
+          <p>
+            $50/month supports a family with basic needs including food and housing
+          </p>
+          <p>
+            $20/ month educates a child and equips them with school supplies (+$10 feeds them)
+          </p>
+        </div>
+        <div class="donate-form-wrapper">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+
+</body>

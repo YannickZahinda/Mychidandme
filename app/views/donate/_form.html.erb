@@ -1,0 +1,508 @@
+<%= form_with url: "/donate", method: :post  do |form| %>
+  <div class="form">
+    <div class="field-input">
+        <%= form.label :amount, "$", class: 'label' %>
+        <%= form.text_field :amount, class: 'input', id: 'amount_field' %>
+    </div>
+    <div class="field-for-money">
+      <div class="field">
+        <%= form.radio_button :money, "$25", onchange: "updateAmountField('25.00')" %>
+        <%= form.label :money_twenty_five, "$25" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$50", onchange: "updateAmountField('50.00')" %>
+        <%= form.label :money_fifty, "$50" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$100", onchange: "updateAmountField('100.00')" %>
+        <%= form.label :money_hundred, "$100" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "$200", onchange: "updateAmountField('200.00')" %>
+        <%= form.label :money_two_hundred, "$200" %>
+      </div>
+      <div class="field">
+        <%= form.radio_button :money, "custom", onchange: "focusAmountField("")" %>
+        <%= form.label :money_custom, "Custom Amount" %>
+      </div>
+    </div>
+    <div class="field-checklist-wrapper">
+      <div class="field-checklist">
+          <%= form.check_box :checklist, class: 'checkbox' %>
+          <%= form.label :checklist, "I'd Like to help cover the transaction fee of $1.80 for my donation.", class: 'check-label' %>
+      </div>
+      <div class="field-checklist">
+        <div class="field-checklist-select">
+            <%= form.check_box :checklisted, class: 'checkbox' %>
+            <%= form.label :checklisted, "Make this donation every", class: 'check-label' %>
+            <%= form.select :city, ["Day", "Week", "Month", "Quarter", "Year"],  selected: "Month" , class: "select" %>
+        </div>
+      </div>
+      <div class="field-payment">
+        <div class="payment-header-wrapper">
+          <h2 class="payment-header">Select Payment Method</h2>
+          <span id="hidden-icon"><i class="fa-sharp fas fa-circle-notch fa-spin fa-sm"></i></span>
+        </div>
+          <hr class="hr">
+        <div class="field-payment-form">
+          <div class="field-payment-form-checkout" id="checkout-stripe">
+            <%= form.radio_button :payment, "Checkout", class: 'payment-radio1', onchange: "showStripe()" %>
+            <%= form.label :payment, "Stripe-Checkout", class: 'payment-label-checkout' %>
+          </div>
+          <div class="field-payment-form-credit-card"  id="credit-card-stripe">
+            <%= form.radio_button :payment, "Credit-card", class: 'payment-radio', onchange: "showStripeHidden()" %>
+            <%= form.label :payment, "Stripe-Credit-Card", class: 'payment-label-credit-card', id:'payment-label-credit-card' %>
+          </div>
+        </div>
+      </div>
+      <div class="personal-info">
+        <div class="personal-header-wrapper">
+          <h2 class="personal-header">Personal Information</h2>
+          <hr class="hr">
+        </div>
+        <div class="personal-info-content">
+          <div class="personal-info-firstname">
+            <%= form.label :p_info, "First Name", class: 'personal-info-label' %>
+            <%= form.text_field :p_info, placeholder: "First Name", class: 'personal-input', required: true %>
+          </div>
+          <div class="personal-info-lastname ">
+            <%= form.label :p_info, "Last Name", class: 'personal-info-label' %>
+            <%= form.text_field :p_info, placeholder: "Last Name", class: 'personal-input', required: true %>
+          </div>
+        </div>
+      </div>
+      <h2 class="asking-header">Is this donation for a company</h2>
+      <div class="asking">
+        <div class="asking-content">
+             <div class="asking-radio-wrapper">
+              <%= form.radio_button :asking, class: 'asking-radio' %>
+              <%= form.label :payment, "No", class: 'asking-label' %>
+            </div>
+            <div class="asking-radio-wrapper">
+              <%= form.radio_button :asking, class: 'asking-radio' %>
+              <%= form.label :asking, "Yes", class: 'asking-label' %>
+            </div>
+          </div>
+      </div>
+      <div class="personal-email ">
+        <%= form.label :p_info, "Email Address", class: 'personal-email-label' %>
+        <%= form.email_field :p_info, placeholder: "Email", class: 'email-input', required: true %>
+      </div>
+      <div class="hidden-checklist">
+          <%= form.check_box :hidden, class: 'checkbox' %>
+          <%= form.label :hidden, "Make this an anonymous donation", class: 'hidden-info-label' %>
+      </div>
+      <div class="text-area">
+          <%= form.label :text_area, "Comment", class: 'text-info-label' %>
+          <%= form.text_area :text_area, class: 'text-area-input' %>
+      </div>
+      <div class="new-account">
+          <%= form.check_box :new_acct, class: 'checkbox' %>
+          <%= form.label :new_acct, "Create an Account", class: 'hidden-info-label' %>
+      </div>
+      <div class="card-info" id="card-information">
+        <div class="card-header-wrapper">
+          <h2 class="card-header">Credit Card Info</h2>
+          <hr class="hr">
+          <div class="card-secure-wrapper">
+            <span><i class="icon card-secure-icon fas fa-lock"></i></span>
+            <p class="icon card-secure-info">This is a secure SSL encrypted payment.</p>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <div class="card-info-number">
+            <%= form.label :card_number, "Card Number", class: 'card-number' %>
+            <%= form.text_field :card_number, placeholder: "Card Number", id: "card-number", class: 'card-input-number', required: true %>
+          </div>
+          <div class="card-info-cvc ">
+            <%= form.label :card_cvc, "CVC", class: 'card-cvc' %>
+            <%= form.text_field :card_cvc, placeholder: "CVC", id: "cvc", oninput: " maxLengthCheck()",class: 'card-input-cvc', required: true %>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <div class="card-info-holder-name">
+            <%= form.label :card_name, "Card Holder Name", class: 'card-holder-name' %>
+            <%= form.text_field :card_name, placeholder: "Card Holder Name", class: 'card-input-holder-name', required: true %>
+          </div>
+          <div class="card-info-date ">
+            <%= form.label :card_exp_date, "Expiration", class: 'card-date' %>
+            <%= form.text_field :card_exp_date, placeholder: "MM / YY", onkeyup: "formatString(event)", id: "expiration-date-input", class: 'card-input-date', required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="billing-info">
+        <div class="billing-header-wrapper">
+          <h2 class="billing-header">Billing Details</h2>
+          <hr class="hr">
+        </div>
+        <div class="billing-info-content">
+          <div class="billing-info-country">
+            <%= form.label :billing_country, " Country", class: 'billing-country-label;' %>
+            <%= form.select :billing_country, options_for_select([
+              ['Afghanistan', 'AF'],
+              ['Albania', 'AL'],
+              ['Algeria', 'DZ'],
+              ['Andorra', 'AD'],
+              ['Angola', 'AO'],
+              ['Argentina', 'AR'],
+              ['Armenia', 'AM'],
+              ['Australia', 'AU'],
+              ['Austria', 'AT'],
+              ['Azerbaijan', 'AZ'],
+              ['Bahamas', 'BS'],
+              ['Bahrain', 'BH'],
+              ['Bangladesh', 'BD'],
+              ['Barbados', 'BB'],
+              ['Belarus', 'BY'],
+              ['Belgium', 'BE'],
+              ['Belize', 'BZ'],
+              ['Benin', 'BJ'],
+              ['Bhutan', 'BT'],
+              ['Bolivia', 'BO'],
+              ['Bosnia and Herzegovina', 'BA'],
+              ['Botswana', 'BW'],
+              ['Brazil', 'BR'],
+              ['Brunei', 'BN'],
+              ['Bulgaria', 'BG'],
+              ['Burkina Faso', 'BF'],
+              ['Burundi', 'BI'],
+              ['Cambodia', 'KH'],
+              ['Cameroon', 'CM'],
+              ['Canada', 'CA'],
+              ['Cape Verde', 'CV'],
+              ['Central African Republic', 'CF'],
+              ['Chad', 'TD'],
+              ['Chile', 'CL'],
+              ['China', 'CN'],
+              ['Colombia', 'CO'],
+              ['Comoros', 'KM'],
+              ['Congo', 'CG'],
+              ['Costa Rica', 'CR'],
+              ['Croatia', 'HR'],
+              ['Cuba', 'CU'],
+              ['Cyprus', 'CY'],
+              ['Czech Republic', 'CZ'],
+              ['Democratic Republic of the Congo', 'CD'],
+              ['Denmark', 'DK'],
+              ['Djibouti', 'DJ'],
+              ['Dominica', 'DM'],
+              ['Dominican Republic', 'DO'],
+              ['East Timor', 'TL'],
+              ['Ecuador', 'EC'],
+              ['Egypt', 'EG'],
+              ['El Salvador', 'SV'],
+              ['Equatorial Guinea', 'GQ'],
+              ['Eritrea', 'ER'],
+              ['Estonia', 'EE'],
+              ['Eswatini', 'SZ'],
+              ['Ethiopia', 'ET'],
+              ['Fiji', 'FJ'],
+              ['Finland', 'FI'],
+              ['France', 'FR'],
+              ['Gabon', 'GA'],
+              ['Gambia', 'GM'],
+              ['Georgia', 'GE'],
+              ['Germany', 'DE'],
+              ['Ghana', 'GH'],
+              ['Greece', 'GR'],
+              ['Grenada', 'GD'],
+              ['Guatemala', 'GT'],
+              ['Guinea', 'GN'],
+              ['Guinea-Bissau', 'GW'],
+              ['Guyana', 'GY'],
+              ['Haiti', 'HT'],
+              ['Honduras', 'HN'],
+              ['Hungary', 'HU'],
+              ['Iceland', 'IS'],
+              ['India', 'IN'],
+              ['Indonesia', 'ID'],
+              ['Iran', 'IR'],
+              ['Iraq', 'IQ'],
+              ['Ireland', 'IE'],
+              ['Israel', 'IL'],
+              ['Italy', 'IT'],
+              ['Jamaica', 'JM'],
+              ['Japan', 'JP'],
+              ['Jordan', 'JO'],
+              ['Kazakhstan', 'KZ'],
+              ['Kenya', 'KE'],
+              ['Kiribati', 'KI'],
+              ['Kuwait', 'KW'],
+              ['Kyrgyzstan', 'KG'],
+              ['Laos', 'LA'],
+              ['Latvia', 'LV'],
+              ['Lebanon', 'LB'],
+              ['Lesotho', 'LS'],
+              ['Liberia', 'LR'],
+              ['Libya', 'LY'],
+              ['Liechtenstein', 'LI'],
+              ['Lithuania', 'LT'],
+              ['Luxembourg', 'LU'],
+              ['Madagascar', 'MG'],
+              ['Malawi', 'MW'],
+              ['Malaysia', 'MY'],
+              ['Maldives', 'MV'],
+              ['Mali', 'ML'],
+              ['Malta', 'MT'],
+              ['Marshall Islands', 'MH'],
+              ['Mauritania', 'MR'],
+              ['Mauritius', 'MU'],
+              ['Mexico', 'MX'],
+              ['Micronesia', 'FM'],
+              ['Moldova', 'MD'],
+              ['Monaco', 'MC'],
+              ['Mongolia', 'MN'],
+              ['Montenegro', 'ME'],
+              ['Morocco', 'MA'],
+              ['Mozambique', 'MZ'],
+              ['Myanmar', 'MM'],
+              ['Namibia', 'NA'],
+              ['Nauru', 'NR'],
+              ['Nepal', 'NP'],
+              ['Netherlands', 'NL'],
+              ['New Zealand', 'NZ'],
+              ['Nicaragua', 'NI'],
+              ['Niger', 'NE'],
+              ['Nigeria', 'NG'],
+              ['North Korea', 'KP'],
+              ['North Macedonia', 'MK'],
+              ['Norway', 'NO'],
+              ['Oman', 'OM'],
+              ['Pakistan', 'PK'],
+              ['Palau', 'PW'],
+              ['Panama', 'PA'],
+              ['Papua New Guinea', 'PG'],
+              ['Paraguay', 'PY'],
+              ['Peru', 'PE'],
+              ['Philippines', 'PH'],
+              ['Poland', 'PL'],
+              ['Portugal', 'PT'],
+              ['Qatar', 'QA'],
+              ['Romania', 'RO'],
+              ['Russia', 'RU'],
+              ['Rwanda', 'RW'],
+              ['Saint Kitts and Nevis', 'KN'],
+              ['Saint Lucia', 'LC'],
+              ['Saint Vincent and the Grenadines', 'VC'],
+              ['Samoa', 'WS'],
+              ['San Marino', 'SM'],
+              ['Sao Tome and Principe', 'ST'],
+              ['Saudi Arabia', 'SA'],
+              ['Senegal', 'SN'],
+              ['Serbia', 'RS'],
+              ['Seychelles', 'SC'],
+              ['Sierra Leone', 'SL'],
+              ['Singapore', 'SG'],
+              ['Slovakia', 'SK'],
+              ['Slovenia', 'SI'],
+              ['Solomon Islands', 'SB'],
+              ['Somalia', 'SO'],
+              ['South Africa', 'ZA'],
+              ['South Korea', 'KR'],
+              ['South Sudan', 'SS'],
+              ['Spain', 'ES'],
+              ['Sri Lanka', 'LK'],
+              ['Sudan', 'SD'],
+              ['Suriname', 'SR'],
+              ['Sweden', 'SE'],
+              ['Switzerland', 'CH'],
+              ['Syria', 'SY'],
+              ['Taiwan', 'TW'],
+              ['Tajikistan', 'TJ'],
+              ['Tanzania', 'TZ'],
+              ['Thailand', 'TH'],
+              ['Togo', 'TG'],
+              ['Tonga', 'TO'],
+              ['Trinidad and Tobago', 'TT'],
+              ['Tunisia', 'TN'],
+              ['Turkey', 'TR'],
+              ['Turkmenistan', 'TM'],
+              ['Tuvalu', 'TV'],
+              ['Uganda', 'UG'],
+              ['Ukraine', 'UA'],
+              ['United Arab Emirates', 'AE'],
+              ['United Kingdom', 'GB'],
+              ['United States', 'US'],
+              ['Uruguay', 'UY'],
+              ['Uzbekistan', 'UZ'],
+              ['Vanuatu', 'VU'],
+              ['Vatican City', 'VA'],
+              ['Venezuela', 'VE'],
+              ['Vietnam', 'VN'],
+              ['Yemen', 'YE'],
+              ['Zambia', 'ZM'],
+              ['Zimbabwe', 'ZW']
+            ], selected: 'United States'), { prompt: 'United States' } , class: "billing_info-country_select", required: true  %>
+          </div>
+          </div>
+          <div class="billing-info-address1">
+            <%= form.label :billing_address1, "Address 1", class: 'billing-address1-label' %>
+            <%= form.text_field :billing_address1, placeholder: "Address", class: 'billing-input-address1', required: true %>
+          </div>
+          <div class="billing-info-address2">
+            <%= form.label :billing_address2, "Address 2", class: 'billing-address2-label' %>
+            <%= form.text_field :billing_address2, placeholder: "Address", class: 'billing-input-address2' %>
+          </div>
+          <div class="billing-info-city">
+            <%= form.label :billing_city, "City", class: 'billing-city-label' %>
+            <%= form.text_field :billing_city, placeholder: "City", class: 'billing-input-city', required: true %>
+          </div>
+          <div class="billing-info-postal-state">
+            <div class="billing-info-state">
+              <%= form.label :billing_state, "State", class: 'billing-state-label' %>
+              <%= form.text_field :billing_state, placeholder: "State", class: 'billing-input-state', required: true %>
+            </div>
+            <div class="billing-info-postal ">
+              <%= form.label :billing_postal, "Zip / Postal Code", class: 'billing-postal-label' %>
+              <%= form.text_field :billing_postal, placeholder: "Zip / Postal Code", class: 'billing-input-postal', required: true %>
+            </div>
+          </div>
+        </div>
+        <div class="Stripe-checkout-hidden" id="Stripe-checkout-hidden">
+          <div class="Stripe-checkout-hidden-image-wrapper">
+            <%= image_tag "https://www.finextra.com/finextra-images/top_pics/xl/stripe%20logo%20(blue).png", class: "Stripe-checkout-hidden-img" %>
+            <small class="Stripe-checkout-hidden-header-text">Donate quickly and securely with Stripe</small>
+          </div>
+          <div class="Stripe-checkout-hidden-desciption-wrapper ">
+            <p class="Stripe-checkout-hidden-description">
+            <span>How it works:</span>
+            A Stripe window will
+            open after you click the Donate Now button
+            where you can securely make your donation.
+            You will then be brought back to this page to view your receipt.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="suscribe-donation-total">
+        <div class="suscribe-wrapper">
+          <%= form.check_box :billing_suscribe, checked: true, class: 'checkbox' %>
+          <%= form.label :billing_suscribe, "Subscribe to our newsletter", class: 'hidden-info-label' %>
+        </div>
+        <div class="field-input">
+            <p id='label-total'>Total Donation:</p>
+             <p class="donation-total-p" id = 'donation-total'></p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Donate Now", class: "button" %>
+      </div>
+      <div class="our-needs">
+        <div class="our-needs-header">
+          <h2 class="our-needs-h2">Our Need</h2>
+        </div>
+        <div class="our-needs-content">
+          <ul class="our-needs-list-ul">
+            <li class="our-needs-list-li">Approx. $18k -Continued funding for food distribution program</li>
+            <li class="our-needs-list-li">Approx. $24k -For Training Programs</li>
+            <li class="our-needs-list-li">Approx. $20k -Education for 100 children</li>
+          </ul>
+        </div>
+      </div>
+      <div id="loader" style="display: none;">
+      </div>
+    </div>
+<% end %>
+
+<script>
+  function updateAmountField(value) {
+    document.getElementById('amount_field').value = value;
+    document.getElementById('donation-total').textContent = "$" + value;
+  }
+
+  function focusAmountField() {
+    document.getElementById('amount_field').focus();
+   document.getElementById('amount_field').value = "";
+  }
+
+
+  let radio = document.querySelector('#payment_credit-card');
+  let loader = document.getElementById("loader");
+  let hiddenIcon = document.getElementById("hidden-icon");
+  document.addEventListener("DOMContentLoaded", function() {
+
+  if (radio) {
+      radio.checked = true;
+    } else {
+      console.error("Element with ID 'credit-card-stripe' not found.");
+    }
+  });
+
+
+function showStripe() {
+  document.getElementById('card-information').style.display = 'none';
+   document.getElementById('Stripe-checkout-hidden').style.display = 'block';
+    loader.style.display = "block";
+    hiddenIcon.style.display = "block";
+     setTimeout(function() {
+          loader.style.display = "none";
+          hiddenIcon.style.display = "none";
+        }, 2000);
+
+}
+
+function showStripeHidden() {
+  document.getElementById('card-information').style.display = 'block';
+  document.getElementById('Stripe-checkout-hidden').style.display = 'none';
+  loader.style.display = "block";
+  hiddenIcon.style.display = "block";
+
+    setTimeout(function() {
+          loader.style.display = "none";
+          hiddenIcon.style.display = "none";
+        }, 2000);
+}
+
+
+   const inputElement = document.getElementById('card-number');
+
+  inputElement.addEventListener('input', function (event) {
+    let inputValue = event.target.value;
+    let formattedValue = inputValue.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+
+    event.target.value = formattedValue;
+
+    if (formattedValue.length >= 19) {
+      event.target.value = formattedValue.substring(0, 19);
+      event.target.style.color = 'red';
+    } else {
+      event.target.style.color = '';
+    }
+  });
+
+  function formatString(event) {
+    let inputChar = String.fromCharCode(event.keyCode);
+    let code = event.keyCode;
+    let allowedKeys = [8];
+
+    if (allowedKeys.indexOf(code) !== -1) {
+      return;
+    }
+
+    let inputValue = event.target.value.replace(
+      /^([1-9]\/|[2-9])$/g, '0$1/' // 3 > 03/
+    ).replace(
+      /^(0[1-9]|1[0-2])$/g, '$1/' // 11 > 11/
+    ).replace(
+      /^([0-1])([3-9])$/g, '0$1/$2' // 13 > 01/3
+    ).replace(
+      /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2' // 141 > 01/41
+    ).replace(
+      /^([0]+)\/|[0]+$/g, '0' // 0/ > 0 and 00 > 0
+    ).replace(
+      /[^\d\/]|^[\/]*$/g, '' // To allow only digits and `/`
+    ).replace(
+      /\/\//g, '/' // Prevent entering more than 1 `/`
+    );
+
+    event.target.value = inputValue;
+  }
+
+  function maxLengthCheck() {
+    const inputField = document.getElementById("cvc");
+    const maxValues = 3;
+   inputField.value = inputField.value.replace(/\D/g, "");
+    inputField.value = inputField.value.trim().slice(0, maxValues);
+  }
+</script>

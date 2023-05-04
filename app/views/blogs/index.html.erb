@@ -1,0 +1,31 @@
+<p class="notice"><%= notice %></p>
+
+<div class="blogs">
+  <h1 style="text-align: center; margin-top: 3.5rem">Blogs</h1>
+  <% @blogs.each do |blog| %>
+    <div class="blog">
+      <div class="blog-head">
+        <h5>
+          <div class="admin-icon-blog">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="current-user">
+            <% if blog.user_id? %>
+              <%= blog.user.email%>
+            <% end %>
+          </div>
+        </h5>
+        <div>Published: <em><strong><%= blog.created_at.strftime("%B %d, %Y")%></strong></em></div>
+      </div>
+      <div class="blog-body">
+        <div class="blog-text">
+          <h2 class="title"><%= blog.title %></h2><br/>
+          <div class="read-more"><%= link_to "See this pub", blog, class: "btn btn-primary" %></div>
+        </div>
+      </div>
+      
+    </div>
+  <% end %>
+</div>
+
+

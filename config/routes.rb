@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users
+  root to: "home#index"
+
+  namespace :admin do
+    resources :home, only: [:index]
+
+    resources :blogs, only: [:index, :new, :show, :create, :update, :delete, :edit]
+  end
+
+  resources :home, only: [:index]
+  get 'about' => 'about#index'
+  get 'donate' => 'donate#index'
+  resources :blogs, only: [:index, :show]
 end

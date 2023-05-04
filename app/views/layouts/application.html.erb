@@ -7,10 +7,41 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "about", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "blog", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "navbar", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+     <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+    <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) %>
+      <div class="admin-display">
+        <%= render "shared/adminsidebar" %>
+        <div class="yield"><%= yield%></div>
+      </div>
+    <% else %>
+      <div class="nav-bar">
+        <%= render "shared/navbar" %>
+      </div>
+      <%= yield %>
+      <footer>
+       <p> &copy; COPYRIGHT MYCHILDANDME </p>
+      </footer>
+    <% end %>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://use.fontawesome.com/69681bfa35.js"></script>
+
   </body>
 </html>
