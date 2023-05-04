@@ -41,16 +41,17 @@
       <div class="field-payment">
         <div class="payment-header-wrapper">
           <h2 class="payment-header">Select Payment Method</h2>
-          <hr class="hr">
+          <span id="hidden-icon"><i class="fa-sharp fas fa-circle-notch fa-spin fa-sm"></i></span>
         </div>
+          <hr class="hr">
         <div class="field-payment-form">
-          <div class="field-payment-form-checkout">
-            <%= form.radio_button :payment, class: 'payment-radio' %>
+          <div class="field-payment-form-checkout" id="checkout-stripe">
+            <%= form.radio_button :payment, "Checkout", class: 'payment-radio1', onchange: "showStripe()" %>
             <%= form.label :payment, "Stripe-Checkout", class: 'payment-label-checkout' %>
           </div>
-          <div class="field-payment-form-credit-card">
-            <%= form.radio_button :payment, class: 'payment-radio' %>
-            <%= form.label :payment, "Stripe-Credit-Card", class: 'payment-label-credit-card' %>
+          <div class="field-payment-form-credit-card"  id="credit-card-stripe">
+            <%= form.radio_button :payment, "Credit-card", class: 'payment-radio', onchange: "showStripeHidden()" %>
+            <%= form.label :payment, "Stripe-Credit-Card", class: 'payment-label-credit-card', id:'payment-label-credit-card' %>
           </div>
         </div>
       </div>
@@ -99,7 +100,7 @@
           <%= form.check_box :new_acct, class: 'checkbox' %>
           <%= form.label :new_acct, "Create an Account", class: 'hidden-info-label' %>
       </div>
-      <div class="card-info">
+      <div class="card-info" id="card-information">
         <div class="card-header-wrapper">
           <h2 class="card-header">Credit Card Info</h2>
           <hr class="hr">
@@ -357,6 +358,21 @@
             </div>
           </div>
         </div>
+        <div class="Stripe-checkout-hidden" id="Stripe-checkout-hidden">
+          <div class="Stripe-checkout-hidden-image-wrapper">
+            <%= image_tag "https://www.finextra.com/finextra-images/top_pics/xl/stripe%20logo%20(blue).png", class: "Stripe-checkout-hidden-img" %>
+            <small class="Stripe-checkout-hidden-header-text">Donate quickly and securely with Stripe</small>
+          </div>
+          <div class="Stripe-checkout-hidden-desciption-wrapper ">
+            <p class="Stripe-checkout-hidden-description">
+            <span>How it works:</span>
+            A Stripe window will
+            open after you click the Donate Now button
+            where you can securely make your donation.
+            You will then be brought back to this page to view your receipt.
+            </p>
+          </div>
+        </div>
       </div>
       <div class="suscribe-donation-total">
         <div class="suscribe-wrapper">
@@ -384,6 +400,8 @@
           </ul>
         </div>
       </div>
+      <div id="loader" style="display: none;">
+      </div>
     </div>
 <% end %>
 
@@ -395,8 +413,47 @@
 
   function focusAmountField() {
     document.getElementById('amount_field').focus();
-     document.getElementById('amount_field').value = "";
+   document.getElementById('amount_field').value = "";
   }
+
+
+  let radio = document.querySelector('#payment_credit-card');
+  let loader = document.getElementById("loader");
+  let hiddenIcon = document.getElementById("hidden-icon");
+  document.addEventListener("DOMContentLoaded", function() {
+
+  if (radio) {
+      radio.checked = true;
+    } else {
+      console.error("Element with ID 'credit-card-stripe' not found.");
+    }
+  });
+
+
+function showStripe() {
+  document.getElementById('card-information').style.display = 'none';
+   document.getElementById('Stripe-checkout-hidden').style.display = 'block';
+    loader.style.display = "block";
+    hiddenIcon.style.display = "block";
+     setTimeout(function() {
+          loader.style.display = "none";
+          hiddenIcon.style.display = "none";
+        }, 2000);
+
+}
+
+function showStripeHidden() {
+  document.getElementById('card-information').style.display = 'block';
+  document.getElementById('Stripe-checkout-hidden').style.display = 'none';
+  loader.style.display = "block";
+  hiddenIcon.style.display = "block";
+
+    setTimeout(function() {
+          loader.style.display = "none";
+          hiddenIcon.style.display = "none";
+        }, 2000);
+}
+
 
    const inputElement = document.getElementById('card-number');
 
@@ -441,11 +498,11 @@
 
     event.target.value = inputValue;
   }
+
   function maxLengthCheck() {
     const inputField = document.getElementById("cvc");
-    const maxValues = 3; // Set the maximum number of values allowed
+    const maxValues = 3;
    inputField.value = inputField.value.replace(/\D/g, "");
-    // Split the input value by a delimiter, in this case, an empty string
     inputField.value = inputField.value.trim().slice(0, maxValues);
   }
 </script>

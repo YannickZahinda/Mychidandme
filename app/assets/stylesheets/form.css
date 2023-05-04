@@ -10,9 +10,9 @@
 }
 
 .form label{
-  color: #868484;
+  color: #5c5757;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .field-input{
@@ -108,7 +108,13 @@
   margin-top: 1rem;
 }
 
-.payment-header-wrapper,
+.payment-header-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .personal-header-wrapper,
 .card-header-wrapper,
 .billing-header-wrapper {
@@ -358,4 +364,74 @@ gap: 5px;
   padding: 0.5rem;
   color: #302c2c;
   font-size: 18px;
+}
+
+/* hidden */
+
+.Stripe-checkout-hidden{
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+}
+
+.Stripe-checkout-hidden-image-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Stripe-checkout-hidden-img{
+  width: 40%;
+  height: 80px;
+}
+
+.Stripe-checkout-hidden-header-text{
+  color: #1f1e1e;
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.Stripe-checkout-hidden-description{
+  color: #646262;
+  font-size: 15px;
+  font-weight: 500;
+
+}
+
+.Stripe-checkout-hidden-description span{
+  color: #1f1e1e;
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+#Stripe-checkout-hidden{
+ display: none;
+}
+
+/* loader */
+
+#loader {
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  align-items: center;
+  border: none;
+  backdrop-filter: blur(10px);
+  background-color: #ecdede;
+  margin: auto;
+  opacity: 0.1;
+}
+
+#hidden-icon{
+  display: none;
+  margin-right: 40px;
+  color: #15073b;
 }
