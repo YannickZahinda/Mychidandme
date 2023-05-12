@@ -23,7 +23,7 @@
             <div class="show-btn">
                 <div class="read-more"><%= link_to "Edit", edit_admin_blog_path(@blog), class: "btn btn-primary" %></div> 
                 <div class="read-more"> <%= link_to "Back to blogs", admin_blogs_path, class: "btn-primary" %> </div> 
-                <div class="read-more"><%= link_to 'Delete this blog', admin_blog_path(@blog), method: :delete, class: "btn-primary", style: "background-color: red" %></div>
+                <div class="read-more"><%= button_to 'Delete this blog', admin_blog_path(@blog), method: :delete, class: "btn-primary", style: "background-color: red" %></div>
             </div>
           </div>
         </div>

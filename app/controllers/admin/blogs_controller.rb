@@ -1,5 +1,5 @@
 class Admin::BlogsController < ApplicationController
-    before_action :set_blog, only: %i[show edit update]
+    before_action :set_blog, only: %i[show edit update destroy]
     before_action :authenticate_user!
 
     # GET /blogs or /blogs.json
@@ -51,19 +51,14 @@ class Admin::BlogsController < ApplicationController
   
     # DELETE /blogs/1 or /blogs/1.json
     def destroy
-      begin
-        set_blog
-        @blog.destroy
+     
+      @blog = Blog.find(params[:id])  
+    
+    @blog.destroy
         respond_to do |format|
-          format.html { redirect_to blog_url, notice: "Blog was successfully deleted." }
+          format.html { redirect_to admin_blogs_path, notice: "Blog was successfully deleted." }
           format.json { head :no_content }
         end
-      rescue ActiveRecord::RecordNotFound
-        respond_to do |format|
-          format.html { redirect_to blog_url, alert: "Blog not found." }
-          format.json { head :not_found }
-        end
-      end
     end
   
     private

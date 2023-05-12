@@ -24,7 +24,7 @@
     <p class="alert"><%= alert %></p>
 
 
-    <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) %>
+    <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) || current_page?(new_admin_impact_path) || current_page?(admin_testimonies_path) %>
       <div class="admin-display">
         <%= render "shared/adminsidebar" %>
         <div class="yield"><%= yield%></div>

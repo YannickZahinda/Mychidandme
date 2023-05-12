@@ -1,0 +1,38 @@
+
+<div style="width: 50%, margin: 30px auto">
+   <%= form_with(model: [:admin, @impact], local: true) do |form| %>
+     <% if @impact.errors.any? %>
+         <div style="color: red">
+           <h2><%= pluralize(@impact.errors.count, "error") %>Impact couldn't be saved</h2>
+           <ul>
+           <% @impact.errors.each do |error| %>
+             <li><%= error.full_message %></li>
+           <% end %>
+           </ul>
+         </div>
+       <% end %>
+       <div class="input-field">
+         <%= form.label :mother %>
+         <%= form.text_field :mother %>
+       </div>
+   
+       <div class="input-field">
+         <%= form.label :children %>
+         <%= form.text_field :children %>
+       </div>
+   
+       <div class="input-field">
+         <%= form.label :business %>
+         <%= form.text_field :business %>
+       </div>
+   
+       <div class="input-field">
+         <%= form.label :workshop %>
+         <%= form.text_field :workshop %>
+       </div>
+   
+       <div class="form-actions">
+         <%= form.submit%>
+       </div>
+   <% end %>
+</div>

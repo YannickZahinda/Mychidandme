@@ -310,7 +310,7 @@
 /**************** Contact form **************/
 
 .contact-us form {
-  width: 50%;
+  width: 36%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -321,21 +321,22 @@
   margin-top: 50px;
 }
 
-label {
+.contact-us label {
   font-weight: bold;
   margin-top: 20px;
 }
 
-input,
-textarea {
+.contact-us input,
+.contact-us textarea {
   padding: 10px;
   border: 1px solid #00000054;
   border-radius: 20px;
   margin-top: 5px;
+  width: 100%;
 }
 
-input:focus,
-textarea:focus {
+.contact-us input:focus,
+.contact-us textarea:focus {
   outline: none;
 }
 
