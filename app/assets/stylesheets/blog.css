@@ -112,4 +112,9 @@
   height: 13px;
   object-fit: contain;
 }
+
+.testimony-head-container {
+  display: flex;
+  gap: 20px;
+}
   

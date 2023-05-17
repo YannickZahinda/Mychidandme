@@ -10,7 +10,7 @@ class Admin::TestimoniesController < ApplicationController
     end
 
     def edit 
-      @testimony = Testimony.find(params[:id])
+      # @testimony = Testimony.find(params[:id])
     end
 
     def show

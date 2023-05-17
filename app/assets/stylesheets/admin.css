@@ -131,6 +131,8 @@ form {
   .testimonies-container {
     text-align: center;
     padding: 20px;
+    height: 115vh;
+    overflow-x: scroll;
   }
   
   .testimonies-header {
@@ -141,7 +143,7 @@ form {
   .add-testimony-link {
     display: block;
     margin-bottom: 20px;
-    color: #4a4a4a;
+    color: #007bff;
     font-size: 18px;
     font-weight: bold;
   }
@@ -163,6 +165,7 @@ form {
     height: 60px;
     border-radius: 50%;
     margin-right: 20px;
+    object-fit: cover;
     float: left;
   }
   

@@ -2,7 +2,7 @@
 
 <div class="blogs">
   <h1 style="text-align: center; margin-top: 3.5rem">Blogs</h1>
-  <%= link_to "+ Add blog", new_admin_blog_path %>
+  <%= link_to "+ Add blog", new_admin_blog_path, style: "color: #007bff"%>
   <% @blogs.each do |blog| %>
     <div class="blog">
       <div class="blog-head">
