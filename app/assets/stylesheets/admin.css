@@ -16,7 +16,8 @@
 }
 
 .admin-home-head h1 {
-    color: rgb(85, 78, 78);
+    color: #007bff;
+    text-shadow: 3px 5px 2px rgba(0,0,0,0.5);
 }
 
 .yield {
