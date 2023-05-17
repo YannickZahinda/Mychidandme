@@ -1,3 +1,9 @@
+.dashboard-display {
+  display: flex;
+  /* justify-content: center; */
+}
+
+
 .admin-home-head {
     border-radius: 13px;
     width: 100%;
@@ -14,10 +20,8 @@
 }
 
 .yield {
-  flex: 1;
+  width: 100%;
   padding: 20px;
-  height: 120vh;
-  overflow-x: scroll;
 }
 
 

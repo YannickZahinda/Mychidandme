@@ -18,12 +18,16 @@
         </div>
         <div class="blog-body">
           <div class="blog-text">
-            <h2 class="title"><%= @blog.title %></h2><br/>
+            <div class="blog-title-container">
+              <h2 class="title"><%= @blog.title %></h2>
+              <div class= blog-title-btns >
+                <div><%= link_to "Edit", edit_admin_blog_path(@blog), class: "btn-edit" %> <%= image_tag "edit-pen-icon", class: "edit-btn-icon"%></div> 
+                <div><%= link_to "Back to blogs", admin_blogs_path, class: "btn-back" %> </div>
+              </div>
+            </div><br/>
             <p><%= @blog.body %></p>
-            <div class="show-btn">
-                <div class="read-more"><%= link_to "Edit", edit_admin_blog_path(@blog), class: "btn btn-primary" %></div> 
-                <div class="read-more"> <%= link_to "Back to blogs", admin_blogs_path, class: "btn-primary" %> </div> 
-                <div class="read-more"><%= button_to 'Delete this blog', admin_blog_path(@blog), method: :delete, class: "btn-primary", style: "background-color: red" %></div>
+            <div class="show-btn"> 
+                <div><%= button_to 'Delete this blog', admin_blog_path(@blog), method: :delete, class: "btn-delete"%></div>
             </div>
           </div>
         </div>

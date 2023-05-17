@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-  <div>
+  <div class="input-field">
     <%= form.hidden_field :user_id, value: current_user.id%>
     <%= form.label :title , class: 'label'%>
     <%= form.text_field :title, class: 'input' %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :body , class: 'label'%>
-    <%= form.text_area :body, class: 'input' %>
+    <%= form.text_area :body, class: 'input', style: 'width: 100vh; height: 30vh; font-size: 12px' %>
   </div>
 
-  <div>
+  <div class="form-actions">
     <%= form.submit %>
   </div>
 <% end %>

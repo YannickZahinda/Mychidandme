@@ -3,14 +3,19 @@
 }
 
 .blogs {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  flex-direction: column;
-  gap: 25px;
+  flex-direction: column; */
+  width: 100%;
+  margin: 15px auto;
+  height: 110vh;
+  overflow-x: scroll;
+  /* gap: 25px; */
 }
 
 .blog {
   margin: 10px 40px 40px 40px;
+  width: 100%;
 }
 
 .btn-primary {
@@ -66,5 +71,45 @@
 
 .read-more {
   margin: 30px 0 0 0;
+}
+
+.btn-delete {
+  border: none;
+  padding: 14px;
+  border-radius: 7px;
+  background-color: #ba2f31;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: #d13c3f;
+}
+
+.blog-title-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.blog-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-edit,
+.btn-back {
+  color: #007bff;
+}
+
+.btn-edit:hover,
+.btn-back:hover {
+  color: #044e9d;
+}
+
+
+.edit-btn-icon {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
 }
   

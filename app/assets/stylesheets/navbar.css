@@ -36,7 +36,7 @@
   text-decoration: none;
   color: #fff;
   background-color: #d13c3f;
-  padding: 30px;
+  padding: 20px;
 }
 
 .admin-link {
@@ -57,7 +57,7 @@
 }
 
 .home-logo {
-  width: 200px;
+  width: 60%;
   /* height: 200px; */
   margin: 0;
   padding: 0;
