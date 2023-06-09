@@ -1,5 +1,6 @@
 @import "slick-carousel/slick/slick";
 @import "slick-carousel/slick/slick-theme";
+@import 'semantic-ui';
 
 
 * {
@@ -370,15 +371,18 @@ footer {
   color: #fff;
 }
 
+.menu-bar {
+  background-color: #f0ebeb;
+  border-radius: 4px;
+  width: 30px;
+  height: 4px;
+}
+
 
 
 @media only screen and (max-width: 900px) {
   .menu-icon{
     display: block;
-  }
-
-  .links  {
-    display: none;
   }
 
   .descpt-wwa {

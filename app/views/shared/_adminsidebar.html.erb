@@ -1,7 +1,7 @@
-<div class="admin_side_bar">
-  <div class= home-logo > <%= link_to(root_path) do%> <%= image_tag "mychildandmelogo.webp", class: "logo-img" %> <% end %> </div>
-  <div class="admin-link"><%= link_to "Impact over years", admin_home_index_path %></div>
-  <div class="admin-link"><%= link_to "My Blog", admin_blogs_path%></div>
-  <div class="admin-link"><%= link_to "Testimonials", admin_testimonies_path %></div>
-  <div class="admin-link"><%= link_to "Log out", destroy_user_session_path, method: :delete%></div>
+<div class="side-admin">
+  <div class= home-logo ><%= link_to(root_path) do%><%= image_tag "mychildandmelogo.webp", class: "logo-img" %> <% end %> </div>
+  <div class="side-link dashboard"><%= image_tag "dashboard-icon.png", class: "side-icon dash-icon" %><%= link_to "Dashboard", admin_home_index_path %></div>
+  <div class="side-link sidelink"><%= image_tag "blogger-icon.png", class: "side-icon dash-icon" %><%= link_to "My Blog", admin_blogs_path%></div>
+  <div class="side-link sidelink"><%= image_tag "comment-blog-icon.png", class: "side-icon dash-icon" %><%= link_to "Testimonials", admin_testimonies_path %></div>
+  <div class="side-link sidelink"><%= image_tag "logout.png", class: "side-icon dash-icon" %><%= link_to "Log out", destroy_user_session_path, method: :delete%></div>
 </div>

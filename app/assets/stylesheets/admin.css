@@ -3,6 +3,43 @@
   /* justify-content: center; */
 }
 
+.side-admin {
+  padding: 20px;
+  background-color: #4E73DF;
+  color: #fff;
+}
+
+.dashboard {
+  
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.dashboard {
+  vertical-align: middle;
+}
+
+.side-link a{
+  color: #ffffffcf;
+  padding: 35px;
+}
+
+.side-link a:hover {
+  color: #fff;
+}
+
+
+.sidelink {
+  margin: 15px;
+}
+
+.side-icon {
+  color: #fff;
+  width: 14px;
+  height: 14px;
+  object-fit: cover;
+}
+
 
 .admin-home-head {
     border-radius: 13px;
@@ -41,13 +78,13 @@
     gap: 10px;
 }
 
-.status-admin {
+/* .status-admin {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 20px;
     height: 75vh;
     overflow-x: scroll;
-}
+} */
 
 /* Form wrapper */
 form {

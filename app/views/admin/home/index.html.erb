@@ -3,29 +3,71 @@
     <h1>OUR IMPACT OVER THE YEARS</h1>
   </div>
   <div>
-  
     <% @impacts.each do |imp| %>
     <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff;" %>
-      <div class="status status-admin">
-         <div class="mothers">
-           <h2>MOTHERS</h2>
-           <%= image_tag "mother-icon.png", class: "impact-icon" %>
-           <div style="font-size: 26px"><strong><%= imp.workshop%></strong></div>
+    
+      <%# ++++++++++++++/////============ %>
+
+      <div class="ui link cards">
+         <div class="card">
+           <div class="ui small image">
+             <%= image_tag "children-icon.png"%>
+           </div>
+           <div class="content">
+             <div class="header"><%= imp.mother %></div>
+             <div class="meta">
+               <a>Friends</a>
+             </div>
+           </div>
+           <div class="extra content">
+             <span class="right floated">
+               Joined in 2013
+             </span>
+             <span>
+               <i class="user icon"></i>
+               75 Friends
+             </span>
+           </div>
          </div>
-         <div class="children">
-          <h2>CHILDREN</h2>
-            <%= image_tag "children-icon.png", class: "impact-icon" %>
-            <div style="font-size: 26px"><strong><%= imp.mother %></strong></div>
+         <div class="card">
+           <div class="ui small image">
+            <%= image_tag "children-icon.png" %>
+           </div>
+           <div class="content">
+             <div class="header"><%= imp.workshop%></div>
+             <div class="meta">
+               <span class="date">Coworker</span>
+             </div>
+           </div>
+           <div class="extra content">
+             <span class="right floated">
+               Joined in 2011
+             </span>
+             <span>
+               <i class="user icon"></i>
+               35 Friends
+             </span>
+           </div>
          </div>
-         <div class="business">
-          <h2>BUSINESSES</h2>
-             <%= image_tag "business-woman-icon.png", class: "impact-icon" %>
-             <div style="font-size: 26px"><strong><%= imp.children %></strong></div>
-         </div>
-         <div class="workshop">
-             <h2>WORKSHOPS</h2>
-             <%= image_tag "workshop-icon.png", class: "impact-icon" %>
-             <div style="font-size: 26px"><strong><%= imp.business %></strong></div>
+         <div class="card">
+           <div class="ui small image">
+             <%= image_tag "children-icon.png" %>
+           </div>
+           <div class="content">
+             <div class="header"> <%= imp.children %></div>
+             <div class="meta">
+               <a>Coworker</a>
+             </div>
+           </div>
+           <div class="extra content">
+             <span class="right floated">
+               Joined in 2014
+             </span>
+             <span>
+               <i class="user icon"></i>
+               151 Friends
+             </span>
+           </div>
          </div>
       </div>
     <% end %>

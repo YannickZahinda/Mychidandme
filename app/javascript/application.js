@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+//= require semantic-ui
 //= require jquery
 //= require slick
 
@@ -21,15 +22,5 @@ function initialize() {
 }
 
 document.addEventListener("turbo:load", function() {
-  initialize()
-
-  document.addEventListener("DOMContentLoaded", function() {
-    // Find the prev and next buttons and remove them
-    var prevButton = document.querySelector(".prev");
-    var nextButton = document.querySelector(".next");
-    prevButton.parentNode.removeChild(prevButton);
-    nextButton.parentNode.removeChild(nextButton);
-  });
-  
-  
+  initialize();
 })
