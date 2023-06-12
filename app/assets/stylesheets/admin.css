@@ -1,12 +1,28 @@
 .dashboard-display {
-  display: flex;
+  display: grid;
+  grid: 200px 1fr;
   /* justify-content: center; */
+}
+
+.impact-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(150px);
+  gap: 15px;
+}
+
+.impact-cards > .card {
+  border-radius: 7px;
+  border-left: 4px solid #4E73DF;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .side-admin {
   padding: 20px;
   background-color: #4E73DF;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard {
@@ -40,6 +56,12 @@
   object-fit: cover;
 }
 
+.admin-home-index {
+  text-align: center;
+  padding: 20px;
+  height: 115vh;
+  overflow-x: scroll;
+}
 
 .admin-home-head {
     border-radius: 13px;

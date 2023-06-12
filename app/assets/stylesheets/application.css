@@ -409,4 +409,9 @@ footer {
   .inv-title {
     color: #202020d6;
   }
+
+  .dashboard-display {
+    display: grid;
+    grid: 170px 1fr;
+  }
 }
