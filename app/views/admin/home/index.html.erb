@@ -1,43 +1,49 @@
 <div class="admin-home-index">
+  <div class="nav-bar-search">
+    <form>
+      <input type="search" placeholder="Search...">
+      <button type="button">search</button>
+    </form>
+  </div>
   <div class="admin-home-head">
     <h1>OUR IMPACT OVER THE YEARS</h1>
   </div>
   <div>
     <% @impacts.each do |imp| %>
-    <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff;" %>
+    <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff; padding-bottom: 10px" %><br/>
     
       <%# ++++++++++++++/////============ %>
 
       <div class="impact-cards">
          <div class="card">
-           <h1>
+           <h2>
              Mother
-           </h1>
+           </h2>
            <div class="content">
              <%= imp.mother %>
            </div>
          </div>
          <div class="card">
-           <h1>
+           <h2>
              Workshop
-           </h1>
+           </h2>
            <div class="content">
              <%= imp.workshop %>
            </div>
          </div>
          
          <div class="card">
-           <h1>
+           <h2>
              Children
-           </h1>
+           </h2>
            <div class="content">
              <%= imp.children %>
            </div>
          </div>
          <div class="card">
-           <h1>
+           <h2>
              Business
-           </h1>
+           </h2>
            <div class="content">
              <%= imp.business %>
            </div>
