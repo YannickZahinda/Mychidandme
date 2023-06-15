@@ -6,6 +6,7 @@ class Admin::HomeController < ApplicationController
     def index
       @blogs = Blog.all
       @impacts = Impact.all
+      @messages = Message.all
     end
 
     def logged_in_users

@@ -96,13 +96,9 @@
     gap: 10px;
 }
 
-/* .status-admin {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 20px;
-    height: 75vh;
-    overflow-x: scroll;
-} */
+.form {
+  text-align: center;
+}
 
 /* Form wrapper */
 form {

@@ -12,6 +12,7 @@
   <%# <a href="#">Our Work</a> %>
   <%= link_to "Blog", blogs_path%>
   <a href="donate">Donate</a>
+  <%= link_to "Contact us", new_message_path%>
   <% if user_signed_in? %>
    <%= link_to "logout", destroy_user_session_path, method: :delete%>
    <% if current_user.is_admin? %>

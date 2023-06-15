@@ -51,4 +51,35 @@
       </div>
     <% end %>
   </div>
+  <div class="messages-container ui segment">
+    <h2>All messages</h2>
+    <% if @messages.present? %>
+      <% @messages.each do |message| %>
+        <div class="ui icon message">
+          <i class="inbox icon"></i>
+          <div class="content">
+            <div class="header">
+              <%= message.name %>
+            </div>
+            <div><%= message.contact %></div>
+            <p><%= message.body %></p>
+          </div>
+          <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
+            <i class="trash alternate icon"></i> 
+          <% end %>
+        </div>
+        
+      <% end %>
+    <% else %>
+      <div class="ui icon message">
+        <i class="inbox icon"></i>
+        <div class="content">
+          <div class="header">
+            Here will be the sender name
+          </div>
+          <p>No messages yet</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
