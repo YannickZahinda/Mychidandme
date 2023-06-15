@@ -8,6 +8,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
 }
 
 
@@ -447,3 +448,15 @@ footer {
     grid: 170px 1fr;
   }
 }
+
+#content {
+  min-height: 200px;
+  width: 100%;
+
+  }
+.ui.grid{
+  padding: 0 !important;
+  }
+.pushable.segment{
+  margin: 0 !important;
+  }

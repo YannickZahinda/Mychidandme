@@ -23,4 +23,16 @@ function initialize() {
 
 document.addEventListener("turbo:load", function() {
   initialize();
+  $('.ui.sidebar').sidebar({
+    context: $('.ui.pushable.segment'),
+    transition: 'overlay'
+  }).sidebar('attach events', '#mobile_item');
+
+  $(document).ready(function() {
+    $('.ui.popup')
+      .popup({
+        on: 'click',
+        position: 'bottom right'
+      });
+  });
 })
