@@ -460,3 +460,25 @@ footer {
 .pushable.segment{
   margin: 0 !important;
   }
+
+
+
+/* m,m. 8888888888888888888888888*/
+
+/* NAVBAR BOOTSTRAP ========================*/
+
+body{
+  background-color:#eee;
+}
+
+.nav-link:hover{
+  background-color:#525252 !important;
+}
+
+.nav-link .fa{
+  transition:all 1s;
+}
+
+.nav-link:hover .fa{
+  transform:rotate(360deg);
+}

@@ -1,4 +1,4 @@
-#conatiner {
+#container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -7,10 +7,12 @@
 
 #content{
   background-color: #fff;
-  border-left: 240px solid #d13c3f;
+  /* border-left: 240px solid #d13c3f; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .donate-header {
