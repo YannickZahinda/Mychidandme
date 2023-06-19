@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index] 
   resources :messages, only: [:show, :update, :destroy, :new, :create, :edit]
+  resources :leads
   
   
   get 'about' => 'about#index'

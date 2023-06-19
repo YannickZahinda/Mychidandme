@@ -3,5 +3,6 @@ class HomeController < ApplicationController
     @blogs = Blog.all
     @impacts = Impact.all
     @testimonies = Testimony.all
+    @lead = Lead.new
   end
 end

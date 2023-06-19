@@ -155,10 +155,17 @@
   <div class="news-letter">
     <h1>BE PART OF SOMETHING GREAT</h1>
     <p>Subscribe to our Newsletter</p>
-    <form action="">
-      <input type="text" placeholder="Enter email addresse">
-      <button>Submit</button>
-    </form>
+    <% if cookies[:saved_lead]%>
+      Thanks for signing up to our newsletters
+    <% else %>
+      <%= form_for @lead do |f|%>
+        <%= f.text_field :name, placeholder: "Name" %>
+        <%= f.email_field :email, placeholder: "Email" %>
+        <%= f.select :device, ["iphone", "android"], prompt: "Choose your device", class: "select-form"%>
+        <%= f.country_select :country, placeholder: "Country", class: "select-form" %>
+        <%= f.submit style: "background-color: black; color: white;" %>
+      <% end %>
+    <% end %>
   </div>
   <div class="involvement">
     <div>
