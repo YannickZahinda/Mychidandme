@@ -1,5 +1,5 @@
 <%= form_with url: "/donate", method: :post  do |form| %>
-  <div class="form">
+  <div class="ui form">
     <div class="field-input">
         <%= form.label :amount, "$", class: 'label' %>
         <%= form.text_field :amount, class: 'input', id: 'amount_field' %>
@@ -381,14 +381,14 @@
         </div>
         <div class="field-input">
             <p id='label-total'>Total Donation:</p>
-             <p class="donation-total-p" id = 'donation-total'></p>
+            <p class="donation-total-p" id = 'donation-total'></p>
         </div>
       </div>
 
-      <div class="actions">
+      <div class="actions ui button">
         <%= form.submit "Donate Now", class: "button" %>
       </div>
-      <div class="our-needs">
+      <div class="our-needs ui container">
         <div class="our-needs-header">
           <h2 class="our-needs-h2">Our Need</h2>
         </div>

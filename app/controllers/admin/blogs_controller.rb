@@ -51,14 +51,13 @@ class Admin::BlogsController < ApplicationController
   
     # DELETE /blogs/1 or /blogs/1.json
     def destroy
-     
       @blog = Blog.find(params[:id])  
     
-    @blog.destroy
-        respond_to do |format|
-          format.html { redirect_to admin_blogs_path, notice: "Blog was successfully deleted." }
-          format.json { head :no_content }
-        end
+      @blog.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_blogs_path, notice: "Blog was successfully deleted." }
+        format.json { head :no_content }
+      end
     end
   
     private

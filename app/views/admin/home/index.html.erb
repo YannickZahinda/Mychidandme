@@ -1,33 +1,87 @@
 <div class="admin-home-index">
+ <div>
+  <div class="nav-bar-search">
+    <form>
+      <input type="search" placeholder="Search...">
+      <button type="button">search</button>
+    </form>
+  </div>
   <div class="admin-home-head">
     <h1>OUR IMPACT OVER THE YEARS</h1>
   </div>
   <div>
-  
     <% @impacts.each do |imp| %>
-    <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff;" %>
-      <div class="status status-admin">
-         <div class="mothers">
-           <h2>MOTHERS</h2>
-           <%= image_tag "mother-icon.png", class: "impact-icon" %>
-           <div style="font-size: 26px"><strong><%= imp.workshop%></strong></div>
+    <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff; padding-bottom: 10px" %><br/>
+    
+      <%# ++++++++++++++/////============ %>
+
+      <div class="impact-cards">
+         <div class="card">
+           <h2>
+             Mother
+           </h2>
+           <div class="content">
+             <%= imp.mother %>
+           </div>
          </div>
-         <div class="children">
-          <h2>CHILDREN</h2>
-            <%= image_tag "children-icon.png", class: "impact-icon" %>
-            <div style="font-size: 26px"><strong><%= imp.mother %></strong></div>
+         <div class="card">
+           <h2>
+             Workshop
+           </h2>
+           <div class="content">
+             <%= imp.workshop %>
+           </div>
          </div>
-         <div class="business">
-          <h2>BUSINESSES</h2>
-             <%= image_tag "business-woman-icon.png", class: "impact-icon" %>
-             <div style="font-size: 26px"><strong><%= imp.children %></strong></div>
+         
+         <div class="card">
+           <h2>
+             Children
+           </h2>
+           <div class="content">
+             <%= imp.children %>
+           </div>
          </div>
-         <div class="workshop">
-             <h2>WORKSHOPS</h2>
-             <%= image_tag "workshop-icon.png", class: "impact-icon" %>
-             <div style="font-size: 26px"><strong><%= imp.business %></strong></div>
+         <div class="card">
+           <h2>
+             Business
+           </h2>
+           <div class="content">
+             <%= imp.business %>
+           </div>
          </div>
       </div>
     <% end %>
+  </div>
+  <div class="messages-container ui segment">
+    <h2>All messages</h2>
+    <% if @messages.present? %>
+      <% @messages.each do |message| %>
+        <div class="ui icon message">
+          <i class="inbox icon"></i>
+          <div class="content">
+            <div class="header">
+              <%= message.name %>
+            </div>
+            <div><%= message.contact %></div>
+            <p><%= message.body %></p>
+          </div>
+          <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
+            <i class="trash alternate icon"></i> 
+          <% end %>
+        </div>
+        
+      <% end %>
+    <% else %>
+      <div class="ui icon message">
+        <i class="inbox icon"></i>
+        <div class="content">
+          <div class="header">
+            Here will be the sender name
+          </div>
+          <p>No messages yet</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
   </div>
 </div>
