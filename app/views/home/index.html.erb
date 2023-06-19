@@ -161,8 +161,8 @@
       <%= form_for @lead do |f|%>
         <%= f.text_field :name, placeholder: "Name" %>
         <%= f.email_field :email, placeholder: "Email" %>
-        <%= f.select :device, ["iphone", "android"], prompt: "Choose your device", class: "select-form"%>
-        <%= f.country_select :country, placeholder: "Country", class: "select-form" %>
+        <%= f.select :device, ["iphone", "android"], prompt: "Choose your device", style: "background-color: #f2f2f2; border: 1px solid #ccc;", class: "select-form"%>
+        <%= f.country_select :country, prompt: "Select your country", class: "select-form" %>
         <%= f.submit style: "background-color: black; color: white;" %>
       <% end %>
     <% end %>

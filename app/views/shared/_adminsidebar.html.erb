@@ -28,7 +28,12 @@
           <% end %>
       </li>
 
-      <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Bookmarks</span> </a> </li> 
+      <li> 
+        <%= link_to admin_leads_path, class: "nav-link text-white" do %>
+          <%= tag.i class: "fa fa-bookmark" %>
+          <span class="ms-2">Newsletter</span>
+        <% end %>
+      </li> 
     </ul> <hr>
      <div class="dropdown"> 
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 

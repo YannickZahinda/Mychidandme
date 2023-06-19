@@ -418,3 +418,8 @@ display: block;
     color: #000000;
   }
 }
+
+
+.navbar-toggler .navbar-toggler-icon {
+  filter: invert(1);
+}

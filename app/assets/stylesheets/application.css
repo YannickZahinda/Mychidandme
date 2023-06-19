@@ -320,6 +320,11 @@
   padding: 10px;
 }
 
+.news-letter > .select-form {
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .involvement {
   color: #fff;
   padding: 30px;

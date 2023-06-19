@@ -1,4 +1,9 @@
 class LeadsController < ApplicationController
+  
+  def index
+    @leads = Lead.all
+  end
+
   def create
     @lead = Lead.new(lead_params)
 

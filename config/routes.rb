@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :impacts, only: [:index, :new, :show, :create, :update, :destroy, :edit]
     resources :testimonies, only: [:index, :new, :show, :create, :update, :destroy,:edit]
     resources :messages, only: [:index, :delete]
+    resources :leads
   end
 
   resources :home, only: [:index] 
