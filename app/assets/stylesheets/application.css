@@ -1,5 +1,6 @@
 @import "slick-carousel/slick/slick";
 @import "slick-carousel/slick/slick-theme";
+@import 'semantic-ui';
 
 
 * {
@@ -7,6 +8,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
 }
 
 
@@ -54,11 +56,43 @@
     right: 20px;
 }
 
+.nav-bar-search {
+  border-bottom: 3px solid rgba(7, 7, 7, 0.361);
+  box-shadow: #212020;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.nav-bar-search > form {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-bar-search > form > input {
+  width: 60%;
+  border: none;
+  box-shadow: 1px 0.009px 2px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 15px;
+  background-color: #f3f1f1bb;
+
+}
+
+.nav-bar-search > form > button {
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 16.5px;
+  background-color: #007bff;
+  color: white;
+}
+
 .description {
-  position: absolute;
- top: 40%;
- left: 50%;
- transform: translate(-50%, -50%);
+ /* position: absolute;
+ top: 50%;
+ left: 25%;
+ transform: translateY(-50%, -50%); */
 
 }
 
@@ -286,6 +320,11 @@
   padding: 10px;
 }
 
+.news-letter > .select-form {
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .involvement {
   color: #fff;
   padding: 30px;
@@ -340,7 +379,7 @@
   outline: none;
 }
 
-.contact-us form button {
+.btn {
   background-color: #008CBA;
   color: white;
   border: none;
@@ -370,15 +409,18 @@ footer {
   color: #fff;
 }
 
+.menu-bar {
+  background-color: #f0ebeb;
+  border-radius: 4px;
+  width: 30px;
+  height: 4px;
+}
+
 
 
 @media only screen and (max-width: 900px) {
   .menu-icon{
     display: block;
-  }
-
-  .links  {
-    display: none;
   }
 
   .descpt-wwa {
@@ -405,4 +447,43 @@ footer {
   .inv-title {
     color: #202020d6;
   }
+
+  .dashboard-display {
+    display: grid;
+    grid: 170px 1fr;
+  }
+}
+
+#content {
+  min-height: 200px;
+  width: 100%;
+
+  }
+.ui.grid{
+  padding: 0 !important;
+  }
+.pushable.segment{
+  margin: 0 !important;
+  }
+
+
+
+/* m,m. 8888888888888888888888888*/
+
+/* NAVBAR BOOTSTRAP ========================*/
+
+body{
+  background-color:#eee;
+}
+
+.nav-link:hover{
+  background-color:#525252 !important;
+}
+
+.nav-link .fa{
+  transition:all 1s;
+}
+
+.nav-link:hover .fa{
+  transform:rotate(360deg);
 }

@@ -1,0 +1,27 @@
+<%= form_with(model: message) do |form| %>
+  <% if message.errors.any? %>
+    <div class="message-errors">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being sent:</h2>
+
+      <ul>
+        <% message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="contact-us" style="width: 36%">
+    <h1>Contact Us</h1>
+
+    <%= form.label :name, 'Full Name:' %>
+    <%= form.text_field :name, required: true %>
+
+    <%= form.label :contact, 'Email:' %>
+    <%= form.email_field :contact, required: true %>
+
+    <%= form.label :body, 'Message:' %>
+    <%= form.text_area :body, rows: 5, required: true %>
+
+    <%= form.submit 'Send Message', class: 'btn' %>
+  </div>
+<% end %>

@@ -2,7 +2,7 @@
 
 <div class="blogs">
   <h1 style="text-align: center; margin-top: 3.5rem">Blogs</h1>
-  <%= link_to "+ Add blog", new_admin_blog_path %>
+  <%= link_to "+ Add blog", new_admin_blog_path, style: "color: #007bff"%>
   <% @blogs.each do |blog| %>
     <div class="blog">
       <div class="blog-head">
@@ -12,8 +12,10 @@
       <div class="blog-body">
         <div class="blog-text">
           <h2 class="title"><%= blog.title %></h2><br/>
-          <div class="read-more"><%= link_to "See this pub", admin_blog_path(blog), class: "btn btn-primary" %></div>
-          <div class="read-more"><%= link_to "Edit", edit_admin_blog_path(blog), class: "btn btn-primary" %></div>
+          <div class= blog-title-btns >
+            <div><%= link_to "Edit", edit_admin_blog_path(blog), class: "btn-edit" %> <%= image_tag "edit-pen-icon", class: "edit-btn-icon"%></div> 
+            <div><%= link_to "See this pub", admin_blog_path(blog), class: "btn-back" %></div>
+          </div>
         </div>
       </div>
       

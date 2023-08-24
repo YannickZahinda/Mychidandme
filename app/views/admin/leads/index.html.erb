@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Newsletter Subscribers</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Device</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% if @leads.present?%>
+          <% @leads.each do |subscriber| %>
+            <tr>
+              <td><%= subscriber.name %></td>
+              <td><%= subscriber.email %></td>
+              <td><%= subscriber.country %></td>
+              <td><%= subscriber.device %></td>
+            </tr>
+          <% end %>
+        <% else %>
+         <tr>
+          No records.
+         </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

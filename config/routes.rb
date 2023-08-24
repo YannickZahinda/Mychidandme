@@ -10,9 +10,15 @@ Rails.application.routes.draw do
 
     resources :impacts, only: [:index, :new, :show, :create, :update, :destroy, :edit]
     resources :testimonies, only: [:index, :new, :show, :create, :update, :destroy,:edit]
+    resources :messages, only: [:index, :delete]
+    resources :leads
   end
 
-  resources :home, only: [:index]
+  resources :home, only: [:index] 
+  resources :messages, only: [:show, :update, :destroy, :new, :create, :edit]
+  resources :leads
+  
+  
   get 'about' => 'about#index'
   get 'donate' => 'donate#index'
   resources :blogs, only: [:index, :show]
