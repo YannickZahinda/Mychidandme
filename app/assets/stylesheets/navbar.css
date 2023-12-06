@@ -1,15 +1,4 @@
-
-
-
-
-
-
-
-
-/*-------------------------------*/
-/*     Sidebar nav styles        */
-/*-------------------------------*/
-.navbar {
+/* .navbar {
 padding: 0;
 }
 
@@ -117,8 +106,9 @@ margin-right: 10px;
 }
 .dropdown-menu.show {
   top: 0;
-}
+} */
 /*Fontawesome icons*/
+
 .nav.sidebar-nav li a::before {
   font-family: fontawesome;
   content: "\f12e";
@@ -374,7 +364,7 @@ display: block;
 
 
 
-@media only screen and (max-width: 992px){
+/* @media only screen and (max-width: 992px){
   .hidden-menu {
     display: block;
   }
@@ -417,4 +407,4 @@ display: block;
     padding: 10px;
     color: #000000;
   }
-}
+} */
