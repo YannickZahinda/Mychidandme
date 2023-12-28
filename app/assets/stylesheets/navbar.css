@@ -4,6 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 0 1rem;
+  background-color: #333;
 }
 
 .nav_list {
@@ -11,7 +12,7 @@
   padding-left: 0;
   width: 100%;
   margin: 0;
-  background-color: #333;
+  /* background-color: #333 */
 }
 
 .nav__item {
@@ -20,12 +21,14 @@
 
 nav a {
   text-decoration: none;
-  color: #333;
+  /* color: #333; */
+  color: #fff;
   transition: color .3s;
 }
 
 nav a:hover {
-  color: #fff
+  /* color: #fff */
+  color: #333;
 }
 
 .nav__toggler {
@@ -47,6 +50,11 @@ nav a:hover {
   overflow: hidden;
   opacity: 0;
   transition: all 0.3s;
+}
+
+.logo-img {
+  width: 70%;
+  margin: 0 50px;
 }
 
 .collapsible__expanded .collapsible__content {

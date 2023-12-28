@@ -14,6 +14,7 @@
   <%= stylesheet_link_tag "navbar", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
+  <%# <p class="notice"><%= notice</p> %>
   <%# <p class="alert"><%= alert %>
 
   <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) || current_page?(new_admin_impact_path) || current_page?(admin_testimonies_path) %>
@@ -33,7 +34,7 @@
     </div>
   <% else %>
     <div class="nav-bar">
-      <%= render "shared/navbar" %>
+      <%= render "shared/navbar"%>
     </div>
     <%= yield %>
     <footer>

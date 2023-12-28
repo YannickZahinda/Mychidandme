@@ -1,45 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white w-100">
-  <div class="container-fluid">
-    <div class="home-logos">
-      <%= link_to(root_path) do %>
-        <%= image_tag "mychildandmelogo.webp", class: "logo-img me-2" %>
-      <% end %>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon white icon-light"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link active text-white" %>
+<nav class="nav collapsible">
+  <%= link_to(root_path) do %>
+    <%= image_tag "mychildandmelogo.webp", class: "logo-img me-2"%>
+  <% end %>
+  <%= image_tag "hamburger-menu.png", class: "nav__toggler"%>
+  <ul class="nav_list collapsible__content">
+    <li class="nav__item">
+      <%= link_to "Home", root_path, class: "nav__link"%>
+    </li>
+    <li class="nav__item">
+      <%= link_to "About", about_path, class: "nav__link"%>
+    </li>
+    <li class="nav__item">
+      <%= link_to "Blog", blogs_path, class: "nav__link"%>
+    </li>
+    <li class="nav__item">
+      <%= link_to "Donate", donate_path, class: "nav__link" %>
+    </li>
+    <li class="nav__item">
+      <%= link_to "Contact Us", new_message_path, class: "nav__link" %>
+    </li>
+    <% if user_signed_in? %>
+      <% if current_user.is_admin? %>
+        <li class="nav__item">
+          <%= link_to "Dashboard", admin_home_index_path, class: "nav__link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Blog", blogs_path, class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Donate", donate_path, class: "nav-link text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Contact Us", new_message_path, class: "nav-link text-white" %>
-        </li>
-        <% if user_signed_in? %>
-          <% if current_user.is_admin? %>
-            <li class="nav-item">
-              <%= link_to "Dashboard", admin_home_index_path, class: "nav-link text-white" %>
-            </li>
-          <% end %>
-          <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path, class: "nav-link text-white" %>
-          </li>
         <% end %>
-      </ul>
-    </div>
-  </div>
+        <li class="nav__item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav__link" %>
+        </li>
+      <% else %>
+        <li class="nav__item">
+          <%= link_to "Sign In", new_user_session_path, class: "nav__link" %>
+        </li>
+    <% end %>
+  </ul>
 </nav>
