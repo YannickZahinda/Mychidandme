@@ -60,7 +60,7 @@ nav a:hover {
 .collapsible__expanded .collapsible__content {
   max-height: 100vh;
   opacity: 1;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .collapsible__expanded .nav__toggler {
