@@ -44,9 +44,12 @@
         <div class="scrollable-items">
           <% if @messages.present? %>
             <% @messages.each do |message| %>
-                <%= message.name %>
-                <%= message.contact %>
-                <%= message.body %>
+              <div class="content">
+                <div class="header">
+                 Sender: <strong> <%= message.name %> </strong>
+                </div>
+                <p><%= message.contact %></p>
+                <%= link_to "show", admin_message_path(message) %>
                 <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
                   <i class="trash alternate icon"></i> 
                 <% end %>
@@ -64,6 +67,11 @@
           <% end %>
         </div>
       </div>
+  </div>
+  <div class="column-two">
+    <div class="column-two-img-container">
+      <%= image_tag('Mychildandme1.png', alt: "img", class: "image-clmn-two") %>
+    </div>
   </div>
   
   </div>
