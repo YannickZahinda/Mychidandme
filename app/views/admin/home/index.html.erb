@@ -1,58 +1,52 @@
-<div class="admin-home-index">
- <div>
-  <div class="nav-bar-search">
-    <form>
-      <input type="search" placeholder="Search...">
-      <button type="button">search</button>
-    </form>
+<div class="admin-page">
+  <div class="column-one">
+      <h1>Dashboard</h1>
+      <p class="dec-overview">DECEMBER 2023<p>
+      <% @impacts.each do |imp| %>
+        <div class="overview-last">
+          <p>OVERVIEW | LAST 12 MONTHS</p>
+          <%= link_to (edit_admin_impact_path(imp)) do%>
+            <% image_tag "icons/edit-2.svg" %>
+          <% end %>
+        </div>
+        <div class="overview-cards">
+          <div class="overview-card">
+            <p class="mother-heading">
+              MOTHERS
+            </p>
+            <div class='data'><%= imp.mother %></div>
+          </div>
+          <div class="overview-card">
+            <p class="mother-heading">
+              WORSHOP
+            </p>
+            <div class='data'><%= imp.workshop %></div>
+          </div>
+           <div class="overview-card">
+              <p class="mother-heading">
+                CHILDREN
+              </p>
+              <div class='data'><%= imp.children %></div>
+           </div>
+           <%# <div class="overview-card"> %>
+               <%#<%= imp.children %>
+           
+        </div>
+      <% end %>
+        <div class="messages-container">
+          <div class="headings d-flex justify-content-between">
+            <h4>
+            Messages
+            <%= image_tag('icons/messages.png', alt: 'message', class: 'img-responsive') %>
+            </h4>
+            <p>See all </p>
+          </div>
+          <div class="scrollable-items">
+           
+          </div>
+        </div>
   </div>
-  <div class="admin-home-head">
-    <h1>OUR IMPACT OVER THE YEARS</h1>
-  </div>
-  <div>
-    <% @impacts.each do |imp| %>
-    <%= link_to "+ Update statistics", edit_admin_impact_path(imp), style: "color: #007bff; padding-bottom: 10px" %><br/>
-    
-      <%# ++++++++++++++/////============ %>
-
-      <div class="impact-cards">
-         <div class="card">
-           <h2>
-             Mother
-           </h2>
-           <div class="content">
-             <%= imp.mother %>
-           </div>
-         </div>
-         <div class="card">
-           <h2>
-             Workshop
-           </h2>
-           <div class="content">
-             <%= imp.workshop %>
-           </div>
-         </div>
-         
-         <div class="card">
-           <h2>
-             Children
-           </h2>
-           <div class="content">
-             <%= imp.children %>
-           </div>
-         </div>
-         <div class="card">
-           <h2>
-             Business
-           </h2>
-           <div class="content">
-             <%= imp.business %>
-           </div>
-         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="messages-container ui segment">
+  
     <h2>All messages</h2>
     <% if @messages.present? %>
       <% @messages.each do |message| %>
