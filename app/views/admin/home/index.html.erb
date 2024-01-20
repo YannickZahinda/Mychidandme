@@ -99,9 +99,21 @@
           <p class='p-data'>1001</p>
         </div>
       </div>
+      <div class='partners'>
+        <h3>Partners</h3>
+        <%= image_tag "icons/edit-2.svg", class: "partner-edit-icon" %>
+      </div>
     </div
   </div>
+</div>
+</div>
+<div class="blog-testimony-section">
+  <p>
+  <%= link_to admin_blogs_path, class: 'p' do %>
+    <span><%= image_tag("icons/testimoniesnote.svg", class: "partner-edit-icon") %></span>
+    Visit blog
+  <% end %>
   
-  </div>
-  </div>
+  </p>
+   <%= link_to "Testimonies", admin_testimonies_path, class: 'p' %>
 </div>

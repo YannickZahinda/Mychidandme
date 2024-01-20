@@ -13,6 +13,11 @@
 
 }
 
+.data {
+  font-weight: bold;
+  font-size: large;
+}
+
 .column-one {
   width: 50%;
 }
@@ -90,7 +95,7 @@
   background-color: #805F2F;
 }
 .overview-card:nth-last-child(1){
-  background-color: #d13c3f;
+  background-color: #000;
 }
 
 
@@ -199,4 +204,33 @@
   border: 1px solid #805F2F;
   padding: 15px;
   width: 100%;
+}
+
+.partners{
+  display: flex;
+  gap: 7px;
+  padding-top: 20px;
+}
+
+.partners h3 {
+  color: #0E6EED;
+  font-weight: bold;
+}
+
+.partner-edit-icon {
+  vertical-align: middle;
+}
+
+
+/*===============  blog-testimony-section ================= */
+
+.blog-testimony-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.blog-testimony-section .p {
+  font-size: 35px;
+  text-decoration: none;
 }
