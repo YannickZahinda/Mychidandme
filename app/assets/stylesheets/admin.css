@@ -149,4 +149,50 @@
 
 .image-clmn-two {
   max-width: 100%;
+  width: 100%;
+}
+
+.datapoint-container {
+  max-width: 100%; 
+}
+
+.datapoint-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 10px;
+}
+
+.edit-icon {
+  height: 20px;
+}
+
+.data-column2 {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0 20px;
+  background-color: #d9d9d9;
+}
+
+.p-data{
+  font-size: 29px;
+}
+
+.children-report {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.children-report .serving {
+  background-color: #d9d9d9;
+  padding: 15px;
+}
+
+.children-report .serving h4 {
+  color: #383636;
+}
+
+.children-report .to-serve {
+  border: 1px solid #805F2F;
+  padding: 15px;
 }
