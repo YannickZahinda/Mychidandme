@@ -33,49 +33,39 @@
            
         </div>
       <% end %>
-        <div class="messages-container">
-          <div class="headings d-flex justify-content-between">
-            <h4>
+      <div class="messages-container">
+        <div class="headings">
+          <h4>
             Messages
             <%= image_tag('icons/messages.png', alt: 'message', class: 'img-responsive') %>
-            </h4>
-            <p>See all </p>
-          </div>
-          <div class="scrollable-items">
-           
-          </div>
+          </h4>
+          <p>See all  </p>
         </div>
-  </div>
-  
-    <h2>All messages</h2>
-    <% if @messages.present? %>
-      <% @messages.each do |message| %>
-        <div class="ui icon message">
-          <i class="inbox icon"></i>
-          <div class="content">
-            <div class="header">
-              <%= message.name %>
+        <div class="scrollable-items">
+          <% if @messages.present? %>
+            <% @messages.each do |message| %>
+                <%= message.name %>
+                <%= message.contact %>
+                <%= message.body %>
+                <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
+                  <i class="trash alternate icon"></i> 
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="">
+              <div class="content">
+                <div class="header">
+                 Sender: no record
+                </div>
+                <p>No messages yet</p>
+              </div>
             </div>
-            <div><%= message.contact %></div>
-            <p><%= message.body %></p>
-          </div>
-          <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
-            <i class="trash alternate icon"></i> 
           <% end %>
         </div>
-        
-      <% end %>
-    <% else %>
-      <div class="ui icon message">
-        <i class="inbox icon"></i>
-        <div class="content">
-          <div class="header">
-            Here will be the sender name
-          </div>
-          <p>No messages yet</p>
-        </div>
       </div>
-    <% end %>
+  </div>
+  
   </div>
   </div>
 </div>
