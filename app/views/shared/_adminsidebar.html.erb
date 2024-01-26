@@ -4,13 +4,26 @@
     <%= link_to(root_path) do%><%= image_tag "mychildandmelogo.webp", class: "company-logo" %> <% end %>
   </div>
   <div class='nav-menu'>
-      <%= link_to "Home", root_path, class: " vertical-align-middle text-white text-decoration-none m-3" %>
-      <%= link_to "Donate", donate_path, class: "text-white text-decoration-none m-3" %>
-      <%= link_to "Dashboard", admin_home_index_path, class: "text-white text-decoration-none m-3"%>
-      <%= link_to "About", about_path, class: "text-white text-decoration-none m-3" %>
+      <div class='m-2'>
+        <i class="fas fa-home text-white mx-2"></i>
+        <%= link_to "Home", root_path, class: "text-white text-decoration-none" %>
+      </div>
+      <div class='m-2'>
+        <i class="fas fa-donate text-white mx-2"></i>
+        <%= link_to "Donate", donate_path, class: "text-white text-decoration-none" %>
+      </div>
+      <div class ='m-2'>
+        <i class="fas fa-info-circle text-white mx-2"></i>
+        <%= link_to "About", about_path, class: "align-middle text-white text-decoration-none" %>
+      </div>
+      <div class='m-2'>
+        <i class="fas fa-newspaper text-white mx-2"></i>
+        <%= link_to "Visit blogs", admin_blogs_path, class: 'text-white text-decoration-none' %>
+      </div>
   </div>
   <div class='action-logout'>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none mx-4" %>
+    <i class="fas fa-sign-out-alt text-white"></i>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none m-2" %>
   </div>
 </div>
 

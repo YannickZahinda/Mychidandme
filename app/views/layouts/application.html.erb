@@ -32,9 +32,9 @@
 
   <% if current_page?(admin_home_index_path) || current_page?(admin_blogs_path) || current_page?(new_admin_blog_path) || current_page?(new_admin_impact_path) || current_page?(admin_testimonies_path) %>
     <div class=''>
-      <div class="">
+      <div class="layout-admin">
         <%= render "shared/adminsidebar" %>
-        <div class=""><%= yield%></div>
+        <div class="admin-body"><%= yield%></div>
       </div>
     </div>
   <% else %>

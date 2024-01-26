@@ -1,8 +1,26 @@
 .nav-wrapper {
   padding: 15px;
   display: flex;
-  justify-content: space-between;
-  background-color: #000;
+  flex-direction: column;
+  background-color: #459A7D;
+  gap: 30px;
+}
+
+.layout-admin {
+  display: flex;
+  background-color: #459A7D;
+}
+
+.admin-body {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #fff;
+
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-page {
@@ -51,7 +69,9 @@
 }
 
 .nav-wrapper a{
-  font-family: 'Josefin Slab', serif;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 18px;
+
 }
 
 .company-logo{
@@ -115,6 +135,8 @@
   overflow-y: scroll;
   padding: 10px;
   height: 26vh;
+  border-radius: 20px;
+  background-color: #131312;
 }
 
 .headings {
@@ -124,11 +146,9 @@
 }
 
 .content {
-  border-radius: 30px;
   padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  box-shadow: inset 1px 2px 1px;
+  color: #fff;
+  /* box-shadow: inset 1px 2px 1px; */
   margin: 10px;
 }
 .message-body {
