@@ -167,7 +167,13 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   height: 60vh;
+  
  
+}
+
+.msg-list {
+  overflow-y: scroll;  
+  height: 46vh;
 }
 
 .msg {

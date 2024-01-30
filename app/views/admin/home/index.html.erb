@@ -48,26 +48,28 @@
           <%= image_tag "1200px-Pushkin_population_history.svg.png", class: "chart-img" %>
         </div>
         <div class='message-list'>
-          <% if @messages.present? %>
-             <h5 class="m-4"> <strong> Messages </strong></h5>
-            <% @messages.each do |message| %>
-              <%= link_to admin_message_path(message), class: 'message-list-link text-decoration-none' do %>
-                  <div class="message-content">
-                    <div class='msg m-3'>
-                      <div class='icon-message'>
-                        <i class="fas fa-user user"></i>
-                      </div>
-                      <div class='message-preview'>
-                        <p><strong><%= message.name %></strong></p>
-                        <p><%= message.contact %></p>
-                        <!-- Using created_at for the timestamp -->
-                        <p class='text-secondary'><em><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></em></p>
+          <h5 class="m-4"> <strong> Messages </strong></h5>
+          <div class='msg-list'>
+            <% if @messages.present? %>
+              <% @messages.each do |message| %>
+                <%= link_to admin_message_path(message), class: 'message-list-link text-decoration-none' do %>
+                    <div class="message-content">
+                      <div class='msg m-3'>
+                        <div class='icon-message'>
+                          <i class="fas fa-user user"></i>
+                        </div>
+                        <div class='message-preview'>
+                          <p><strong><%= message.name %></strong></p>
+                          <p><%= message.contact %></p>
+                          <!-- Using created_at for the timestamp -->
+                          <p class='text-secondary'><em><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></em></p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                <% end %>
               <% end %>
-            <% end %>
-          <% else %>
+            <% else %>
+          </div> 
             <div class="message-list">
               <div class='msg'>
                 <div class='icon-message'>
