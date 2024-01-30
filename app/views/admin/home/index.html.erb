@@ -53,15 +53,15 @@
             <% @messages.each do |message| %>
               <%= link_to admin_message_path(message), class: 'message-list-link text-decoration-none' do %>
                   <div class="message-content">
-                    <div class='msg'>
+                    <div class='msg m-3'>
                       <div class='icon-message'>
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user user"></i>
                       </div>
                       <div class='message-preview'>
                         <p><strong><%= message.name %></strong></p>
                         <p><%= message.contact %></p>
                         <!-- Using created_at for the timestamp -->
-                        <p><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></p>
+                        <p class='text-secondary'><em><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></em></p>
                       </div>
                     </div>
                   </div>
