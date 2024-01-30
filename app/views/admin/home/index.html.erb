@@ -1,6 +1,5 @@
 <div class="admin-page">
   <div class="column-one">
-      <h1>Dashboard</h1>
       <p class="dec-overview">DECEMBER 2023<p>
       <% @impacts.each do |imp| %>
         <div class="overview-last">
@@ -12,108 +11,75 @@
         <div class="overview-cards">
           <div class="overview-card">
             <p class="mother-heading">
+            <i class="fas fa-baby"></i>
               MOTHERS
             </p>
             <div class='data'><%= imp.mother %></div>
           </div>
           <div class="overview-card">
-            <p class="mother-heading">
+            <p class="mother-heading"m >
+            <i class="fas fa-tools"></i>
               WORSHOP
             </p>
             <div class='data'><%= imp.workshop %></div>
           </div>
-           <div class="overview-card">
-              <p class="mother-heading">
-                CHILDREN
-              </p>
-              <div class='data'><%= imp.children %></div>
-           </div>
-           <%# <div class="overview-card"> %>
-               <%#<%= imp.children %>
-           
+          <div class="overview-card">
+            <p class="mother-heading">
+              <i class="fas fa-child"></i>
+              CHILDREN
+            </p>
+            <div class='data'>
+              <%= imp.children %>
+            </div>
+          </div>
+          <div class="overview-card">
+            <p class="mother-heading">
+              <i class="fas fa-child"></i>
+              BUSINESS
+            </p>
+            <div class='data'>
+              <%= imp.business%>
+            </div>
+          </div>
         </div>
       <% end %>
-      <div class="messages-container">
-        <div class="headings">
-          <h4>
-            Messages
-            <%= image_tag('icons/messages.png', alt: 'message', class: 'img-responsive') %>
-          </h4>
-          <p>See all  </p>
+      <div class='chart-message-container'>
+        <div class='chart'>
+          <%= image_tag "1200px-Pushkin_population_history.svg.png", class: "chart-img" %>
         </div>
-        <div class="scrollable-items">
+        <div class='message-list'>
           <% if @messages.present? %>
+             <h5 class="m-4"> <strong> Messages </strong></h5>
             <% @messages.each do |message| %>
-              <div class="content">
-                <div class="header">
-                 Sender: <strong> <%= message.name %> </strong>
-                </div>
-                <p><%= message.contact %></p>
-                <%= link_to "show", admin_message_path(message) %>
-                <%= button_to message_path(message), method: :delete, style: 'border: none;' do %> 
-                  <i class="trash alternate icon"></i> 
-                <% end %>
-              </div>
+              <%= link_to admin_message_path(message), class: 'message-list-link text-decoration-none' do %>
+                  <div class="message-content">
+                    <div class='msg'>
+                      <div class='icon-message'>
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class='message-preview'>
+                        <p><strong><%= message.name %></strong></p>
+                        <p><%= message.contact %></p>
+                        <!-- Using created_at for the timestamp -->
+                        <p><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></p>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
             <% end %>
           <% else %>
-            <div class="">
-              <div class="content">
-                <div class="header">
-                 Sender: no record
+            <div class="message-list">
+              <div class='msg'>
+                <div class='icon-message'>
+                  <i class="fas fa-user"></i>
                 </div>
-                <p>No messages yet</p>
+                <div class='message-preview'>
+                  <p>No messages yet</p>
+                </div>
               </div>
             </div>
           <% end %>
-        </div>
+          </div>
       </div>
-  </div>
-  <div class="column-two">
-    <div class="column-two-img-container">
-      <%= image_tag('Mychildandme1.png', alt: "img", class: "image-clmn-two") %>
     </div>
-    <div class='datapoint-container'>
-      <div class='datapoint-header'>
-        <h5>DATA POINT</h5>
-        <%= image_tag "icons/edit-2.svg", class: "edit-icon" %>
-      </div>
-      <div class="data-column2">
-        <div class='mission'>
-          <h4>MISSION</h4>
-          <p class='p-data'>34</p>
-        </div>
-        <div class='volunteering'>
-          <h3>MISSION</h3>
-          <p class='p-data'>34</p>
-          <p><strong>SERVICE SINCE</strong></p>
-          <p class='p-data'>2009</p>
-        </div>
-      </div>
-      <div class="children-report">
-        <div class='serving'>
-          <h4>CHILDREN-SERVING (DEC 2020)</h4>
-          <p class='p-data'>3093</p>
-        </div>
-        <div class='to-serve'>
-          <h4>CHILDREN TO SERVE(DEC 2024)</h4>
-          <p class='p-data'>1001</p>
-        </div>
-      </div>
-      <div class='partners'>
-        <h3>Partners</h3>
-        <%= image_tag "icons/edit-2.svg", class: "partner-edit-icon" %>
-      </div>
-    </div
-  </div>
-</div>
-</div>
-<div class="blog-testimony-section">
-  <p>
-  <%= link_to admin_blogs_path, class: 'p' do %>
-    <span><%= image_tag("icons/testimoniesnote.svg", class: "partner-edit-icon") %></span>
-    Visit blog
-  <% end %>
-  
-  </p>
-   <%= link_to "Testimonies", admin_testimonies_path, class: 'p' %>
 </div>

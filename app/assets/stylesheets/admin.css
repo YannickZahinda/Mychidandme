@@ -15,6 +15,7 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   background-color: #fff;
+  flex: 1;
 
 }
 
@@ -26,9 +27,18 @@
 .admin-page {
   padding: 30px;
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  flex-direction: column;
+}
 
+.admin-searh {
+  display: flex;
+}
+
+.admin-searh input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 10px;
 }
 
 .data {
@@ -37,11 +47,11 @@
 }
 
 .column-one {
-  width: 50%;
+  width: 100%;
 }
 
 .column-two {
-  width: 50%;
+  width: 100%;
 }
 
 .column-one h1 {
@@ -80,7 +90,7 @@
 
 .overview-cards{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
 }
 
@@ -88,88 +98,98 @@
   /* width: 168px; */
   height: 130px;
   margin: 10px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  border-radius: 10%;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr; */
+  border-radius: 20px;
 }
 
 .overview-card .mother-heading {
   font-size: 15px;
-  color: #fff;
+  color: rgba(41, 40, 40, 0.692);
   padding: 15px;
 }
 
 .overview-card .data {
   padding: 0px 0px 15px 15px;
-  color: #fff;
+  color: rgba(41, 40, 40, 0.692);
 }
 
 .overview-card:nth-last-child(4){
-  background-color: #805F2F;
+  background-color: #459A7D;
+  color: white;
 }
 
 .overview-card:nth-last-child(3){
-  background-color: #0E6EED;
+  border: 1px solid rgba(41, 40, 40, 0.336);
+  color: rgba(41, 40, 40, 0.336);
 }
 
 .overview-card:nth-last-child(2){
-  background-color: #805F2F;
+  border: 1px solid rgba(41, 40, 40, 0.336);
+  color: rgba(41, 40, 40, 0.336);
 }
 .overview-card:nth-last-child(1){
-  background-color: #000;
+  border: 1px solid rgba(41, 40, 40, 0.336);
+  color: rgba(41, 40, 40, 0.336);
 }
 
-
-/* ============ Messages ============= */
-
-.messages-container{
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-
-}
-
-.scrollable-items{
-  width: 100%;
-  overflow-y: scroll;
-  padding: 10px;
-  height: 26vh;
+.chart {
   border-radius: 20px;
-  background-color: #131312;
-}
-
-.headings {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.content {
-  padding: 10px;
-  color: #fff;
-  /* box-shadow: inset 1px 2px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 5px;
   margin: 10px;
-}
-.message-body {
-  margin: 20px;
-  padding: 17px;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-.message-body h3 {
   width: 70%;
-  display: flex;
-  justify-content: start;
 }
 
-.msg-content {
-  background-color: #5f5e5e3b;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
+.chart-img {
+  width: 100%;
+  object-fit: contain; 
+}
+
+/* ============ Chart Messages ============= */
+
+.chart-message-container {
+  display: flex;
+ 
+}
+
+.message-list-link {
+  width: 30%;
+}
+.message-content {
+  color: #302f2f;
+}
+
+.message-list {
   padding: 10px;
+  margin: 10px;
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  height: 60vh;
+ 
+}
+
+.msg {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  gap: 15px;
+}
+
+.icon-message{
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 5px;
+  height: max-content;
+  width: fit-content;
+  font-size: 20px;
+}
+
+.message-preview{
+  flex: 1;
+  width: 100%;
 }
 
 /*=========== column-two styles====================/  */
@@ -273,7 +293,7 @@
   }
 
   .overview-cards{
-    width: 40vh;
+    width: 50vh;
     /* border: 1px solid brown; */
     overflow-x: scroll;
 
