@@ -1,38 +1,37 @@
+<div style="width: 50%; margin: 30px auto; background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <%= form_with(model: [:admin, @impact], local: true) do |form| %>
+    <% if @impact.errors.any? %>
+      <div style="color: #d9534f; background-color: #f2dede; border: 1px solid #d9534f; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+        <h2><%= pluralize(@impact.errors.count, "error") %> Impact couldn't be saved</h2>
+        <ul>
+          <% @impact.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :mother, style: "color: #459A7D;" %>
+      <%= form.text_field :mother, class: "form-control" %>
+    </div>
 
-<div style="width: 50%, margin: 30px auto">
-   <%= form_with(model: [:admin, @impact], local: true) do |form| %>
-     <% if @impact.errors.any? %>
-         <div style="color: red">
-           <h2><%= pluralize(@impact.errors.count, "error") %>Impact couldn't be saved</h2>
-           <ul>
-           <% @impact.errors.each do |error| %>
-             <li><%= error.full_message %></li>
-           <% end %>
-           </ul>
-         </div>
-       <% end %>
-       <div class="input-field">
-         <%= form.label :mother %>
-         <%= form.text_field :mother %>
-       </div>
-   
-       <div class="input-field">
-         <%= form.label :children %>
-         <%= form.text_field :children %>
-       </div>
-   
-       <div class="input-field">
-         <%= form.label :business %>
-         <%= form.text_field :business %>
-       </div>
-   
-       <div class="input-field">
-         <%= form.label :workshop %>
-         <%= form.text_field :workshop %>
-       </div>
-   
-       <div class="form-actions">
-         <%= form.submit%>
-       </div>
-   <% end %>
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :children, style: "color: #459A7D;" %>
+      <%= form.text_field :children, class: "form-control" %>
+    </div>
+
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :business, style: "color: #459A7D;" %>
+      <%= form.text_field :business, class: "form-control" %>
+    </div>
+
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :workshop, style: "color: #459A7D;" %>
+      <%= form.text_field :workshop, class: "form-control" %>
+    </div>
+
+    <div class="form-actions" style="text-align: center;">
+      <%= form.submit class: "btn btn-primary", style: "background-color: #459A7D; border-color: #459A7D;" %>
+    </div>
+  <% end %>
 </div>

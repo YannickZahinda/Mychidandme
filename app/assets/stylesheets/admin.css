@@ -4,11 +4,13 @@
   flex-direction: column;
   background-color: #459A7D;
   gap: 30px;
+  box-sizing: border-box;
 }
 
 .layout-admin {
   display: flex;
   background-color: #459A7D;
+  box-sizing: border-box;
 }
 
 .admin-body {
@@ -30,16 +32,6 @@
   flex-direction: column;
 }
 
-.admin-searh {
-  display: flex;
-}
-
-.admin-searh input {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid #000;
-  padding: 10px;
-}
 
 .data {
   font-weight: bold;
@@ -176,6 +168,7 @@
   height: 46vh;
 }
 
+
 .msg {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius: 8px;
@@ -296,6 +289,20 @@
     flex-direction: column;
   }
 
+  .layout-admin {
+    width: 100vh;
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .link {
+    display: none;
+  }
+
+  .company-logo{
+    width: 60px;
+  }
+
   .column-two {
     width: 100%; 
   }
@@ -304,9 +311,9 @@
   }
 
   .overview-cards{
-    width: 50vh;
+    width: 100%;
     /* border: 1px solid brown; */
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 
   }
 
@@ -315,14 +322,23 @@
     /* border: 1px solid red; */
   }
 
-  .messages-container {
+  .chart-message-container{
+    flex-direction: column;
+  }
+
+  .message-list {
     width: 100%;
-    flex-basis: 100;
   }
 
   .scrollable-items {
     width: 100%;
   }
+
+  .chart {
+    width: 100%;
+  }
+
+  
 }
 
 

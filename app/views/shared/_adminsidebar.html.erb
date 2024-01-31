@@ -5,29 +5,39 @@
   </div>
   <div class='nav-menu'>
       <div class='m-2'>
-        <i class="fas fa-home text-white mx-2"></i>
-        <%= link_to "Home", root_path, class: "text-white text-decoration-none" %>
+        <%= link_to root_path, class: 'text-white text-decoration-none' do %>
+          <i class="fas fa-home text-white mx-2"></i>
+          <span class='link'>Home</span>
+        <% end %>
       </div>
       <div class='m-2'>
-        <i class="fas fa-donate text-white mx-2"></i>
-        <%= link_to "Donate", donate_path, class: "text-white text-decoration-none" %>
+        <%= link_to donate_path, class: 'text-white text-decoration-none' do %>
+          <i class="fas fa-donate text-white mx-2"></i>
+          <span class='link'>Donate</span>
+        <% end %>
       </div>
       <div class ='m-2'>
-        <i class="fas fa-info-circle text-white mx-2"></i>
-        <%= link_to "About", about_path, class: "align-middle text-white text-decoration-none" %>
+        <%= link_to about_path, class: 'align-middle text-white text-decoration-none' do %>
+          <i class="fas fa-info-circle text-white mx-2"></i>
+          <span class='link'>About</span>
+        <% end %>
       </div>
       <div class='m-2'>
-        <i class="fas fa-newspaper text-white mx-2"></i>
-        <%= link_to "Visit blogs", admin_blogs_path, class: 'text-white text-decoration-none' %>
+        <%= link_to admin_blogs_path, class: 'text-white text-decoration-none' do %>
+          <i class="fas fa-newspaper text-white mx-2"></i>
+          <span class='link'>Visit blogs</span>
+        <% end %>
       </div>
       <div class='m-2'>
-        <i class="fas fa-newspaper text-white mx-2"></i>
-        <%= link_to "Visit blogs", admin_blogs_path, class: 'text-white text-decoration-none' %>
+        <%= link_to admin_testimonies_path, class: 'text-white text-decoration-none' do %>
+          <i class="fas fa-comment-alt text-white mx-2"></i>
+          <span class='link'>Testimonies</span>
+        <% end %>
       </div>
   </div>
   <div class='action-logout'>
     <i class="fas fa-sign-out-alt text-white"></i>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none m-2" %>
+    <span class='link'><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none m-2" %></span>
   </div>
 </div>
 
