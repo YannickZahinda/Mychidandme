@@ -1,5 +1,5 @@
 <div style="width: 50%; margin: 30px auto; background-color: #f5f5f5; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-  <%= form_with(model: [:admin, @testimony], url: admin_testimonies_path, local: true) do |form| %>
+  <%= form_with(model: [:admin, @testimony], url: admin_testimony_path, local: true) do |form| %>
     <% if @testimony.errors.any? %>
       <div class="errors" style="color: #d9534f; background-color: #f2dede; border: 1px solid #d9534f; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
         <h2><%= pluralize(@testimony.errors.count, "error") %> testimony couldn't be saved:</h2>

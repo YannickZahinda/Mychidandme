@@ -196,75 +196,90 @@
   width: 100%;
 }
 
-/*=========== column-two styles====================/  */
+/*=========== testimonies styles====================/  */
 
-.image-clmn-two {
+.testimonies-container {
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Header Styles */
+.testimonies-header {
+  color: #459A7D;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Add Testimony Link Styles */
+.add-testimony-link {
+  color: #459A7D;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Testimonies List Styles */
+.testimonies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Individual Testimony Styles */
+.testimony {
+  width: 30%;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Testimony Image Styles */
+.testimony-image {
   max-width: 100%;
-  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
-.datapoint-container {
-  max-width: 100%; 
+/* Testimony Head Container Styles */
+.testimony-head-container {
+  margin-top: 15px;
 }
 
-.datapoint-header {
+/* Testimony Title Styles */
+.testimony-title {
+  color: #459A7D;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Edit Link and Icon Styles */
+.edit-link-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0 10px;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.edit-icon {
+.edit-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.edit-btn-icon {
+  width: 20px;
   height: 20px;
+  margin-left: 5px;
 }
 
-.data-column2 {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px ;
-  background-color: #d9d9d9;
-}
-
-.p-data{
-  font-size: 20px;
-}
-
-.children-report {
-  display: flex;
-  gap: 10px;
-  padding-top: 10px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.children-report .serving {
-  background-color: #d9d9d9;
-  padding: 15px;
-  width: 100%;
-}
-
-.children-report .serving h4 {
-  color: #383636;
-}
-
-.children-report .to-serve {
-  border: 1px solid #805F2F;
-  padding: 15px;
-  width: 100%;
-}
-
-.partners{
-  display: flex;
-  gap: 7px;
-  padding-top: 20px;
-}
-
-.partners h3 {
-  color: #0E6EED;
-  font-weight: bold;
-}
-
-.partner-edit-icon {
-  vertical-align: middle;
+/* Testimony Body Styles */
+.testimony-body {
+  margin-top: 15px;
+  color: #555;
 }
 
 

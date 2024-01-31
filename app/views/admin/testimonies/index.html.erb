@@ -7,11 +7,13 @@
         <%= image_tag tes.image, class: "testimony-image" %>
         <div class="testimony-head-container">
           <h3 class="testimony-title"><%= tes.title %></h3>
-          <div><%= link_to "Edit", edit_admin_testimony_path(tes), style: "text-decoration: none; color: #007bff"%> <%= image_tag "edit-pen-icon", class: "edit-btn-icon"%></div>
+          <div class="edit-link-container">
+            <%= link_to "Edit", edit_admin_testimony_path(tes), class: "edit-link" %>
+            <%= image_tag "edit-pen-icon", class: "edit-btn-icon" %>
+          </div>
         </div>
         <p class="testimony-body"><%= tes.body %></p>
       </div>
-      
     <% end %>
   </div>
 </div>

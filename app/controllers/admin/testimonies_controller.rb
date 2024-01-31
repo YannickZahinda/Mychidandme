@@ -10,7 +10,7 @@ class Admin::TestimoniesController < ApplicationController
     end
 
     def edit 
-      # @testimony = Testimony.find(params[:id])
+      @testimony = Testimony.find(params[:id])
     end
 
     def show
@@ -29,7 +29,7 @@ class Admin::TestimoniesController < ApplicationController
 
     def update
       if @testimony.update(testimony_params)
-        redirect_to admin_testimonies_path(@testimony)
+        redirect_to admin_home_index_path(@testimony)
       else 
         render :show, status: :unprocessable_entity
       end
