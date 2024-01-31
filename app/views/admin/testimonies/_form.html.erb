@@ -1,31 +1,33 @@
-<%= form_with(model: [:admin, @testimony], url: admin_testimonies_path,local: true) do |form| %>
-  <% if testimony.errors.any? %>
-    <div class="errors">
-      <h2><%= pluralize(testimony.errors.count, "error") %> testimony couldn't be saved:</h2>
-      <ul>
-        <% testimony.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div style="width: 50%; margin: 30px auto; background-color: #f5f5f5; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <%= form_with(model: [:admin, @testimony], url: admin_testimonies_path, local: true) do |form| %>
+    <% if @testimony.errors.any? %>
+      <div class="errors" style="color: #d9534f; background-color: #f2dede; border: 1px solid #d9534f; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+        <h2><%= pluralize(@testimony.errors.count, "error") %> testimony couldn't be saved:</h2>
+        <ul>
+          <% @testimony.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :title, style: "color: #459A7D;" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :body, style: "color: #459A7D;" %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="input-field" style="margin-bottom: 15px;">
+      <%= form.label :image, style: "color: #459A7D;" %>
+      <%= form.file_field :image, class: "form-control-file" %>
+    </div>
+
+    <div class="form-actions" style="text-align: center;">
+      <%= form.submit class: "btn btn-primary", style: "background-color: #459A7D; border-color: #459A7D;" %>
     </div>
   <% end %>
-
-  <div class="input-field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="input-field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="input-field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="form-actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
