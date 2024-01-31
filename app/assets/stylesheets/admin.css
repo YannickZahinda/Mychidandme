@@ -225,6 +225,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: 65vh;
+  overflow-y: scroll;
 }
 
 /* Individual Testimony Styles */
