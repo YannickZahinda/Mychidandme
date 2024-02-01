@@ -1,6 +1,8 @@
 @import "slick-carousel/slick/slick";
 @import "slick-carousel/slick/slick-theme";
 @import 'semantic-ui';
+@import 'actiontext.css';
+
 
 body {
   margin: 0;

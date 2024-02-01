@@ -10,14 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <div class="input-field">
-    <%= form.hidden_field :user_id, value: current_user.id%>
-    <%= form.label :title , class: 'label'%>
-    <%= form.text_field :title, class: 'input' %>
+  <div class="form-group">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.label :title, "Title", class: 'label' %>
+    <%= form.text_field :title, class: 'form-control input', placeholder: 'Enter your title' %>
   </div>
-  <div class="input-field">
+
+  <%# <div class="input-field">
     <%= form.label :body , class: 'label'%>
-    <%= form.text_area :body, class: 'input', style: 'width: 100vh; height: 30vh; font-size: 12px' %>
+    <%# <%= form.text_area :body, class: 'input', style: 'width: 100vh; height: 30vh; font-size: 12px' %> 
+  <%# </div> %>
+  <div class="input-field">
+    <%= form.label :content , class: 'label'%>
+    <%= form.rich_text_area :content, class: 'input', style: 'width: 100vh; height: 30vh; font-size: 12px' %>
   </div>
 
   <div class="form-actions">
