@@ -62,10 +62,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_31_224223) do
   end
 
   create_table "impacts", force: :cascade do |t|
-    t.string "mother"
-    t.string "children"
-    t.string "business"
-    t.string "workshop"
+    t.integer "mother"
+    t.integer "children"
+    t.integer "business"
+    t.integer "workshop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
