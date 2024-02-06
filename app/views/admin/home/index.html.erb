@@ -45,7 +45,8 @@
       <% end %>
       <div class='chart-message-container'>
         <div class='chart'>
-          <%= image_tag "1200px-Pushkin_population_history.svg.png", class: "chart-img" %>
+          <%# <%= image_tag "1200px-Pushkin_population_history.svg.png", class: "chart-img" %>
+          <%= line_chart (Impact.group_by_day(:created_at).sum(:business)).merge(Impact.group_by_day(:created_at).sum(:workshop)).merge(Impact.group_by_day(:created_at).sum(:children)) %>
         </div>
         <div class='message-list'>
           <h5 class="m-4"> <strong> Messages </strong></h5>
@@ -64,13 +65,12 @@
                           <!-- Using created_at for the timestamp -->
                           <p class='text-secondary'><em><%= message.created_at.strftime('%B %e, %Y %l:%M %p') %></em></p>
                         </div>
+                        
                       </div>
                     </div>
                 <% end %>
               <% end %>
             <% else %>
-          </div> 
-            <div class="message-list">
               <div class='msg'>
                 <div class='icon-message'>
                   <i class="fas fa-user"></i>
@@ -79,7 +79,7 @@
                   <p>No messages yet</p>
                 </div>
               </div>
-            </div>
+          </div> 
           <% end %>
           </div>
       </div>
