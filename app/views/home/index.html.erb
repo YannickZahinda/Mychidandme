@@ -1,14 +1,14 @@
 <div class="home">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-         <%= image_tag "IMG_8463.JPG", class: "d-block w-100" %>
+      <div class="carousel-item active h-50 dark-overlay">
+         <%= image_tag "Capture.PNG", class: "d-block w-100 darker-image" %>
        </div>
-       <div class="carousel-item">
-         <%= image_tag "IMG_7408 (1).JPG", class: "d-block w-100"%>
+       <div class="carousel-item dark-overlay">
+         <%= image_tag "africawomen.png", class: "d-block w-100 darker-image"%>
        </div>
-       <div class="carousel-item">
-         <%= image_tag "Hair_Braiding.JPG", class: "d-block w-100" %>
+       <div class="carousel-item dark-overlay">
+         <%= image_tag "child1.PNG", class: "d-block w-100 darker-image" %>
        </div>
        
        <div class="description carousel-caption d-none d-md-block">
@@ -28,9 +28,13 @@
   </div>
   
   <div class="who-we-are">
-    <h1 style="color: #d13c3f; text-align: center; padding: 15px">WHO WE ARE</h1>
-    <div class="descpt-wwa" style="display:flex; justify-content: center; padding: 25px; gap: 20px">
+    <div class="descpt-wwa">
       <p>
+        <span style="color: #d13c3f;" class='display-6'>WHO WE ARE</span>
+        <br/>
+        <%= image_tag "Line-2.png", class: 'w-25' %>
+         <br/><br/>
+
          We help mothers help themselves and their children.
          My Child & Me, Inc. is a non-profit organization committed to stabilizing families
          by elevating the quality of life of the abandoned mothers with children
@@ -38,9 +42,10 @@
          violence against women in the Congo and specifically its impact on mothers with children.
          My Child & Me's mission is
           to provide these abandoned mothers with education, life skills training, and tools to enable them to
-         provide for their families and become contributing members of their society.
+         provide for their families and become contributing members of their society. <br/> <br/> <br/> <br/>
+         <%= link_to 'Donate now', donate_path, style: "border: none; border-radius: 10px; color: white; padding: 10px; background-color: #d13c3f" %>
       </p>
-      <%= image_tag "mwabanaimg.png", class: "descpt-img" %>
+      <%= image_tag "childspicfigma.png", class: "descpt-img" %>
     </div>
   </div>
   <div class="impact">
@@ -128,7 +133,7 @@
       </div>
     </div>
   </div>
-  <div style="text-align: center; padding: 20px"><button style="border: none; border-radius: 10px; color: white; padding: 10px; background-color: #d13c3f">DONATE NOW</button></div>
+
   <section class="testimonial-section">
     <div style="padding: 20px"><h1>TESTIMONIALS</h1></div>
     <div class="testimonial-container">
@@ -160,7 +165,7 @@
       <input type="text" placeholder="Enter email addresse">
       <button>Submit</button>
     </form>
-  </div>
+  </div>+++++++++
   <div class="involvement">
     <div>
       <h1 class="inv-title">YOUR INVOLVEMENT</h1>
