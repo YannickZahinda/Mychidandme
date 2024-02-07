@@ -301,14 +301,13 @@
 /*  ============================== Responsiveness ======================== */
 
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) {
   .admin-page {
     flex-direction: column;
+    align-items: center;
   }
 
   .layout-admin {
-    width: 100vh;
-    overflow-x: auto;
     justify-content: center;
   }
 
@@ -320,39 +319,58 @@
     width: 60px;
   }
 
-  .column-two {
-    width: 100%; 
-  }
-
   .overview-card {
   }
 
-  .overview-cards{
-    width: 100%;
-    /* border: 1px solid brown; */
-    /* overflow-x: scroll; */
-
-  }
+  .overview-cards {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row on small screens */
+ }
 
   .column-one {
     width: 100%;
     /* border: 1px solid red; */
   }
 
-  .chart-message-container{
+  .chart-message-container {
     flex-direction: column;
-  }
+ }
+ .chart, .message-list {
+    width: 100%; /* Full width on small screens */
+    margin: 10px 0; /* Adjust spacing */
+ }
 
-  .message-list {
+ .testimony {
+  width: 100%; /* Full width on small screens */
+}
+
+  /* .chart-message-container{
+    flex-direction: column;
+  } */
+
+  /* .message-list {
     width: 100%;
-  }
+  } */
 
   .scrollable-items {
     width: 100%;
   }
 
-  .chart {
+  /* .chart {
     width: 100%;
+  } */
+
+  .nav-menu {
+    padding: 10px;
+    
+  }
+  .logout {
+    margin-left: 10px;
+  }
+
+  .admin-cont {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
   }
 
   

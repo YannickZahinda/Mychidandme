@@ -10,12 +10,21 @@
           <span class='link'>Home</span>
         <% end %>
       </div>
+
+      <div class='m-2'>
+         <%= link_to admin_home_index_path, class: "text-white text-decoration-none" do %>
+            <i class="fas fa-tachometer-alt mx-2"></i>
+            <span class='link'>Dashboard</span>
+         <% end %>
+      </div>
+
       <div class='m-2'>
         <%= link_to donate_path, class: 'text-white text-decoration-none' do %>
           <i class="fas fa-donate text-white mx-2"></i>
           <span class='link'>Donate</span>
         <% end %>
       </div>
+      
       <div class ='m-2'>
         <%= link_to about_path, class: 'align-middle text-white text-decoration-none' do %>
           <i class="fas fa-info-circle text-white mx-2"></i>
@@ -36,7 +45,7 @@
       </div>
   </div>
   <div class='action-logout'>
-    <i class="fas fa-sign-out-alt text-white"></i>
+    <i class="fas fa-sign-out-alt text-white logout"></i>
     <span class='link'><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none m-2" %></span>
   </div>
 </div>

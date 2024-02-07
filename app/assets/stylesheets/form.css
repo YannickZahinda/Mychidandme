@@ -435,3 +435,56 @@ gap: 5px;
   margin-right: 40px;
   color: #15073b;
 }
+
+
+/*  ================= MESSAGE ================ */
+
+
+.message-errors {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin: 10px 0;
+  color: #459A7D;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.btn {
+  background-color: #459A7D;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.btn:hover {
+  background-color: #357d63;
+}
+
+/* Additional styles for responsiveness if needed */
+@media screen and (max-width: 600px) {
+  .contact-us {
+    width: 90%;
+  }
+}
