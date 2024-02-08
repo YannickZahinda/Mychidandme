@@ -101,6 +101,15 @@ body {
   gap: 10px;
 }
 
+/* *********** Responsiveness ************** */
+
+@media only screen and (max-width: 600px) {
+  .descpt-wwa {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
 .descpt-wwa p {
   font-size: 13px;
 }
@@ -122,20 +131,6 @@ body {
   color: #fff;
 }
 
-/* Add this to your CSS file */
-.dark-overlay {
-  position: relative;
-}
-
-.dark-overlay::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* Adjust the last value (0.5) for darkness */
-}
 
 /* // Slide animation ******************** */
 

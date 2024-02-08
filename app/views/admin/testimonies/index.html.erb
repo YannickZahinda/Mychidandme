@@ -3,17 +3,19 @@
   <%= link_to "+ Add Testimony", new_admin_testimony_path, class: "add-testimony-link" %>
   <div class="testimonies-list">
     <% @testimonies.each do |tes| %>
-      <div class="testimony">
-        <%= image_tag tes.image, class: "testimony-image" %>
-        <div class="testimony-head-container">
-          <h3 class="testimony-title"><%= tes.title %></h3>
-          <div class="edit-link-container">
-            <%= link_to "Edit", edit_admin_testimony_path(tes), class: "edit-link" %>
-            <%= image_tag "edit-pen-icon", class: "edit-btn-icon" %>
+      <% if tes.present? && tes.persisted? %>
+        <div class="testimony">
+          <%= image_tag tes.image, class: "testimony-image" %>
+          <div class="testimony-head-container">
+            <h3 class="testimony-title"><%= tes.title %></h3>
+            <div class="edit-link-container">
+               <%= link_to "Edit", edit_admin_testimony_path(tes), class: "edit-link" %>
+               <%= image_tag "edit-pen-icon", class: "edit-btn-icon" %>
+            </div>
           </div>
+          <p class="testimony-body"><%= tes.body %></p>
         </div>
-        <p class="testimony-body"><%= tes.body %></p>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
