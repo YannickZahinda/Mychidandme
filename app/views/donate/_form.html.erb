@@ -4,7 +4,7 @@
         <%= form.label :amount, "$", class: 'label' %>
         <%= form.text_field :amount, class: 'input', id: 'amount_field' %>
     </div>
-    <div class="field-for-money">
+    <div class="field-for-money container-fluid">
       <div class="field">
         <%= form.radio_button :money, "$25", onchange: "updateAmountField('25.00')" %>
         <%= form.label :money_twenty_five, "$25" %>
@@ -26,7 +26,7 @@
         <%= form.label :money_custom, "Custom Amount" %>
       </div>
     </div>
-    <div class="field-checklist-wrapper">
+    <div class="field-checklist-wrapper container-fluid">
       <div class="field-checklist">
           <%= form.check_box :checklist, class: 'checkbox' %>
           <%= form.label :checklist, "I'd Like to help cover the transaction fee of $1.80 for my donation.", class: 'check-label' %>
@@ -40,7 +40,7 @@
       </div>
       <div class="field-payment">
         <div class="payment-header-wrapper">
-          <h2 class="payment-header">Select Payment Method</h2>
+          <h2 class="payment-header text-center w-100">Select Payment Method</h2>
           <span id="hidden-icon"><i class="fa-sharp fas fa-circle-notch fa-spin fa-sm"></i></span>
         </div>
           <hr class="hr">

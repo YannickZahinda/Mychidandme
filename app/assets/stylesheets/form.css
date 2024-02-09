@@ -99,13 +99,18 @@
 
 /* payment */
 
+.form-donate-ui {
+  width: 60%;
+  margin: 0 auto;
+}
+
 .field-payment{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-top: 1rem;
+  align-items: center;
+  /* gap: 1rem;
+  margin-top: 1rem; */
 }
 
 .payment-header-wrapper{
